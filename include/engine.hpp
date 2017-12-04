@@ -46,6 +46,9 @@ class Engine
     //triggers a game over
     void gameOver();
   
+    //reads in a word from words/words.txt
+    void readWordFromFile();
+
   private:
     // Window related variables
     Window *m_window;    
@@ -66,6 +69,8 @@ class Engine
     ShaderSelector selector;
 
     unsigned int gameState;
+
+    std::string word;
 
 };
 
