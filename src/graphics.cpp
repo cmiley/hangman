@@ -78,17 +78,8 @@ bool Graphics::Initialize(int width, int height)
   	}
   	else
   	{
-  		genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
-  		mass = 1;
-      if( objectNames[index].find("plunger") != string::npos )
-      {
-        mass = 1500;
-      }
-
-      if( objectNames[index].find("paddle") != string::npos )
-      {
-        mass = 25;
-      }
+	  genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
+	  mass = 1;
       if( objectNames[index].find("ball") != string::npos )
       {
         mass = 10;
@@ -96,35 +87,10 @@ bool Graphics::Initialize(int width, int height)
   	}
 
   	btDefaultMotionState* genericMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(glmToBullet(genericObject->GetPosition()))));
-    
-    //if left paddle, rotate model
-    if (objectNames[index].find("rightPaddle") != string::npos)
-    {
-      btTransform tempTransform;
-      btQuaternion transformRotationX;
-      btQuaternion transformRotationY;
-      btQuaternion transformRotationZ;
-      // Rotate about axis (using vec3) by an angle.
-      transformRotationY.setRotation(btVector3(0.0,1.0,0.0), 1.570796327);
-      transformRotationX.setRotation(btVector3(1.0,0.0,0.0), 0);
-      transformRotationZ.setRotation(btVector3(0.0,0.0,1.0), 0);
-      tempTransform.setRotation(transformRotationX*transformRotationY*transformRotationZ);
-      genericMotionState->setWorldTransform(tempTransform);
-    }
 
     objectVector.push_back(genericObject);
     m_physics->addObject(genericShape, genericMotionState, mass, objectNames[index]);
 
-    //if its a paddle, add hinge
-    if (objectNames[index].find("Paddle") != string::npos)
-    {
-      m_physics->addHingeConstraint(index);
-    }
-
-    if (objectNames[index].find("plunger") != string::npos)
-    {
-      m_physics->addPlungerConstraint(index);
-    }
   }
 
   cout << endl << endl << endl << "SCORE           ";  

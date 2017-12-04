@@ -148,43 +148,15 @@ void Physics::applyTorque(btVector3 torque, int index)
   physicsObjectVector[ index ]->applyTorque( torque );
 }
 
-
-//void Physics::applyCubeForce(btVector3 force)
-
-void Physics::applyRightPaddleForce()
-{
-  float directionScalar = 1.5 * (1 / (physicsObjectVector[2]->getInvMass()));
-  btVector3 direction(-1.5, 0, -1.5);
-  direction *= directionScalar;
-  btVector3 location(1.2, 0.0, 7.4);
-  physicsObjectVector[2]->applyImpulse(direction, location);
-}
-
-void Physics::applyLeftPaddleForce()
-{
-  float directionScalar = 1.5 * (1 / (physicsObjectVector[1]->getInvMass()));
-  btVector3 direction(1.5, 0, 1.5);
-  direction *= directionScalar;
-  btVector3 location(-2.0, 0.0, 7.4);
-  physicsObjectVector[1]->applyImpulse(direction, location);
-}
-
-//changes the slant of the table, which effects ball speed
-void Physics::setTabelAngle( float newAngle )
-{
-  gravAngle = glm::radians( newAngle );
-  zGrav =  9.798*sin( gravAngle ) / 12.;
-  yGrav = -9.798*cos( gravAngle ) / 12.;
-  dynamicsWorld->setGravity(btVector3(0, yGrav, zGrav));
-}
-
 btVector3 Physics::getPos( int index )
 {
+  /*
   btVector3 x;
   btTransform temp;
   physicsObjectVector[ index ]->getMotionState()->getWorldTransform(temp);
   x = temp.getOrigin();
   return x;
+  */
 }
 
 void Physics::setPosition( btVector3 pos, int index )
@@ -216,67 +188,9 @@ void Physics::rotate( float angle, int index )
   physicsObjectVector[ index ]->setMotionState( tempM );
 }
 
-float Physics::getYRotatation( int index )
-{
-  btTransform tempTran;
-  btQuaternion tempQ;
-  btMotionState *tempM;
-
-  tempM = physicsObjectVector[ index ]->getMotionState();
-  tempM->getWorldTransform( tempTran );
-  tempQ = tempTran.getRotation();
-  /*
-  std::cout << tempQ.getAxis()[ 0 ] << ' ';
-  std::cout << tempQ.getAxis()[ 1 ] << ' ';
-  std::cout << tempQ.getAxis()[ 2 ] << ' ';
-  std::cout << std::endl;
-
-  if( tempQ.getAxis()[ 1 ] == -1 )
-  {
-    return tempQ.getAngle() + 3.1459;
-  }
-
-  return tempQ.getAngle();
-  */
-  btScalar m[16];
-  tempTran.getOpenGLMatrix( m );
-  glm::mat4 m2 = glm::make_mat4(m);
-  glm::vec3 scale;
-  glm::quat rotation;
-  glm::vec3 translation;
-  glm::vec3 skew;
-  glm::vec4 perspective;
-  glm::decompose(m2, scale, rotation, translation, skew, perspective);
-
-  if( rotation[1] <= 0.0 )
-  {
-    return -1. * rotation[1] * M_PI ; 
-  }
-
-  return (1 - rotation[1]) * M_PI + M_PI;
-
-}
-
-void  Physics::setYRotatation( float angle, int index)
-{
-  btTransform tempTran;
-  btQuaternion tempQ;
-  btMotionState *tempM;
-
-  tempM = physicsObjectVector[ index ]->getMotionState();
-  tempM->getWorldTransform( tempTran );
-  tempQ = tempTran.getRotation();
-   
-}
-
 void Physics::clearForce( int index )
 {
   physicsObjectVector[ index ]->setAngularVelocity( btVector3(0,0,0));
-}
-//applies an impulse to an object in the object vector
-void Physics::applyImpulse(int selector)
-{
-
 }
 
 //adds a hinge constrant to an object 
@@ -304,37 +218,6 @@ void Physics::addHingeConstraint(int selector)
 	dynamicsWorld->addConstraint(tempHinge);
 
 	hingeVector.push_back(tempHinge);
-}
-
-void Physics::addPlungerConstraint(int selector)
-{
-	btTransform plungerTransform;
-
-	physicsObjectVector[selector]->getMotionState()->getWorldTransform(plungerTransform);
-	
-	plungerTransform.operator*(btVector3(0,0,1));
-	
-	btSliderConstraint *constraint = new btSliderConstraint(*physicsObjectVector[selector], plungerTransform, false);
-	
-  //constraint->setUpperLinLimit(500);
-	physicsObjectVector[selector]->setLinearFactor(btVector3(0 ,0 ,1));
-	
-	physicsObjectVector[selector]->setAngularFactor(btVector3(0,0,0));
-	
-	//dynamicsWorld->addConstraint(constraint);
-}
-
-//used to determine if round is over
-bool Physics::isBallOut()
-{
-	btVector3 temp = physicsObjectVector[0]->getCenterOfMassPosition();
-
-	if (temp.z() >= btScalar(9.0))
-	{
-		//std::cout << "OUT" << std::endl;
-		return true;
-	}
-	return false;
 }
 
 //Function for calculating score

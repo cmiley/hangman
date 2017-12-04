@@ -73,8 +73,6 @@ void Engine::Run()
       Keyboard();
     }
 
-    
-    m_graphics->getPhysics()->setTabelAngle( m_window->getAngle() );
     // Update the DT
     m_DT = getDT();
 
@@ -105,16 +103,6 @@ void Engine::Keyboard()
     if(m_event.key.keysym.sym == SDLK_ESCAPE || m_event.key.keysym.sym == SDLK_q)
     {
       m_running = false;
-    }
-
-    //A D movements, moves the paddles
-    else if (m_event.key.keysym.scancode == SDL_SCANCODE_A)
-    {      
-      m_graphics->getPhysics()->applyLeftPaddleForce();
-    }
-    else if (m_event.key.keysym.scancode == SDL_SCANCODE_D)
-    {
-      m_graphics->getPhysics()->applyRightPaddleForce();
     }
 
     //left arrow and right arrow, rotates the camera to the left and to the right
@@ -300,38 +288,10 @@ void Engine::updateShaderSelector()
 
 void Engine::updateGameState()
 {
-  if (gameState == 3)
-  {
-    //gameOver();
-  }
 
-  //if its out
-  if (m_graphics->getPhysics()->isBallOut())
-  {
-    std::cout << "You have " << 3 - (++gameState) << " balls left!" << std::endl;
-    m_graphics->getPhysics()->setPosition( btVector3( 4.2,0,4), m_graphics->lookupObjectIndex("ball"));
-    m_graphics->getPhysics()->setPosition( btVector3( 4,-.2,6), m_graphics->lookupObjectIndex("plunger"));
-  }
 }
 
 void Engine::gameOver()
 {
-  char ch = 'a';
 
-  std::cout << "Game Over!" << std::endl << "C to continue or X to quit!" << std::endl;
-
-  while(ch == 'a')
-  {
-    std::cin >> ch;
-  }
-
-  if(ch == 'c' || ch == 'C')
-  {
-    gameState = 0;
-  }
-  else if(ch == 'x' || ch == 'X')
-  {
-    std::cout << "Bye, have a good time" << std::endl;
-    exit(0);
-  }
 }
