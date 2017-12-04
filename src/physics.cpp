@@ -3,7 +3,7 @@
 Physics::Physics()
 {
   
-  gravAngle = glm::radians( 7. );
+  gravAngle = 0;
   zGrav = 9.798*sin( gravAngle );
   yGrav = -9.798*cos( gravAngle );
 }
