@@ -51,6 +51,8 @@ bool Engine::Initialize()
 
   gameState = 0;
 
+  readWordFromFile();
+
   // Set the time
   m_currentTimeMillis = GetCurrentTimeMillis();
 
@@ -294,4 +296,33 @@ void Engine::updateGameState()
 void Engine::gameOver()
 {
 
+}
+
+void Engine::readWordFromFile()
+{
+  ifstream fin;
+
+  fin.open("../words/words.txt");
+
+  if (fin.is_open())
+  {
+    srand (time(NULL));
+    int randomNumb = rand() % 190;
+    std::string tempString;
+
+    for (int i = 0; i < randomNumb; i++)
+    {
+      fin >> tempString;
+    }
+
+    word = tempString;
+
+    std::cout << word << std::endl;
+  }
+  else
+  {
+    std::cerr << "Unable to open word.txt" << std::endl;
+  }
+
+  fin.close();
 }
