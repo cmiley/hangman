@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-# PA11: Hangman
-## Controls
-
-
-## Extra Credit
-
-
-## Features
-
-=======
 # Final Project: Hangman
 ## Controls
 Here go the controls
@@ -18,7 +7,6 @@ We did some cool stuff that is worth more points
 
 ## Features
 Our program is cool and can do this stuff
->>>>>>> 6c4662827aa38b82930e1d65e0ce0854d0b8bc4d
 
 ## Dependency Instructions
 For both of the operating systems to run this project installation of these three programs are required [GLEW](http://glew.sourceforge.net/), [GLM](http://glm.g-truc.net/0.9.7/index.html), and [SDL2](https://wiki.libsdl.org/Tutorials). 
@@ -34,17 +22,11 @@ sudo apt-get install libbullet-dev
 sudo apt-get install libopenal-dev
 ```
 
-## Building and Running
-<<<<<<< HEAD
-Use cmake
-You can use the quickbuild.sh bash file to clean then build/rebuild the build folder
-
 ### CMake Instructions
 The building of the project is done using CMake, installation with apt-get or brew may be necessary.
 
 =======
 Use cmake with following commands (if cmake is not installed, install it with apt-get or brew):
->>>>>>> 6c4662827aa38b82930e1d65e0ce0854d0b8bc4d
 ```bash
 mkdir build
 cd build
