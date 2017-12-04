@@ -19,3 +19,9 @@ positionX 0
 positionY 0
 positionZ 0
 
+objName warehouseFloor
+objFileName Models/warehouseFloor.obj
+objTextureName Textures/concrete.jpg
+positionX 0
+positionY 0
+positionZ 0
