@@ -67,7 +67,8 @@ bool Graphics::Initialize(int width, int height)
     //cout << "INDEX: "  << index << " NAME: " << objectNames[index] << endl;
 
     //for satics 
-  	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos))
+  	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
+  		|| (objectNames[index].find("warehouseFloor") != string::npos))
 
   	{
   		genericShape = new btBvhTriangleMeshShape(objTriMesh, true);
