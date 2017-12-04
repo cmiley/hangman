@@ -1,17 +1,12 @@
-# PA9: Lighting
+# Final Project: Hangman
 ## Controls
-Mousewheel up/down : will zoom in and out
-If you hold rightmouse : pan around a point
-Up/down arrow : will zoom in and out
-Left/right arrow : will pan left and right around point
-
-W A S D : will move the cube
+Here go the controls
 
 ## Extra Credit
-All of our objects are load via triangle meshes
+We did some cool stuff that is worth more points
 
 ## Features
-The cube can get stuck. Do try to do that. If you do you lose and will have to restart.
+Our program is cool and can do this stuff
 
 ## Dependency Instructions
 For both of the operating systems to run this project installation of these three programs are required [GLEW](http://glew.sourceforge.net/), [GLM](http://glm.g-truc.net/0.9.7/index.html), and [SDL2](https://wiki.libsdl.org/Tutorials). 
@@ -28,34 +23,19 @@ sudo apt-get install libopenal-dev
 ```
 
 ## Building and Running
-Use cmake
-
-### CMake Instructions
-The building of the project is done using CMake, installation with apt-get or brew may be necessary.
-
+Use cmake with following commands (if cmake is not installed, install it with apt-get or brew):
 ```bash
 mkdir build
 cd build
 cmake ..
 make
-./Pinball
-```
-
-### Makefile Instructions 
-The makefile works as expected and must be updated with new files added in.
-
-```bash
-mkdir build
-cd build
-cp ../makefile .
-make
-./Tutorial
+./Hangman
 ```
 
 ## Ubuntu.cse.unr.edu
 OpenGL 3.3 will run on the [ubuntu.cse.unr.edu](https://ubuntu.cse.unr.edu/) website. To do so follow the build instructions, but when running the Tutorial executable use this line to execute.
 ```bash
-/usr/NX/scripts/vgl/vglrun ./Tutorial
+/usr/NX/scripts/vgl/vglrun ./Hangman
 ```
 
 
