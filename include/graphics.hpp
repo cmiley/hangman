@@ -49,9 +49,6 @@ class Graphics
     //Looks up an index for an object using the name vector
     int lookupObjectIndex( string input );
 
-    //Checks if a ball has been lost
-    void ballDrained();
-
   private:
 
     //Handles error messages

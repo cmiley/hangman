@@ -89,9 +89,7 @@ bool Graphics::Initialize(int width, int height)
     objectVector.push_back(genericObject);
     m_physics->addObject(genericShape, genericMotionState, mass, objectNames[index]);
 
-  }
-
-  cout << endl << endl << endl << "SCORE           ";  
+  } 
 
   paddleLindex = lookupObjectIndex( "leftPaddle");
   paddleRindex = lookupObjectIndex( "rightPaddle");
@@ -208,20 +206,6 @@ void Graphics::Update(unsigned int dt)
   {
     temp = m_physics->Update(dt, index);
     objectVector[index]->Update(dt, temp);
-  }
-  
-  ballz = m_physics->getPos( ballIndex )[2];
-
-  if( ballz > 9.0 )
-  {
-    ballDrained();
-  }
-  plungerz = m_physics->getPos( lookupObjectIndex("plunger"))[2];
-
-  if( plungerz < -4.5 )
-  {
-    m_physics->clearForce( lookupObjectIndex("plunger"));
-    m_physics->setPosition( btVector3(4.3,.1 , -4.5), lookupObjectIndex("plunger"));
   }
 }
 
@@ -376,45 +360,4 @@ int Graphics::lookupObjectIndex( string input )
   }
 
   return -1;
-}
-
-void Graphics::ballDrained()
-{
-  char ans;
-  balls--;
-  if( balls < 0 )
-  {
-    cout << "GAME OVER" << endl;
-    cout << "Do you want to play again? Y/N" << endl;
-    cin >> ans;
-    if( ans == 'Y')
-    {
-      balls = 3;
-      getPhysics()->setPosition( btVector3( 4.2,0,4), ballIndex );
-      getPhysics()->setPosition( btVector3( 4.3,.1,6), lookupObjectIndex("plunger"));
-    }
-    else
-    {
-      exit(0);
-    }
-  }
-  else
-  { 
-    cout << endl;
-    if( balls == 0 )
-    {
-      cout << "LAST BALL" << endl << endl;
-      cout << "SCORE           ";
-    }
-    else
-    {
-      cout << "You have " << balls << " balls left!" << endl << endl;
-      cout << "SCORE           ";
-    }
-      
-
-    getPhysics()->setPosition( btVector3( 4.2,0,4), ballIndex );
-    getPhysics()->setPosition( btVector3( 4.3,.1,6), lookupObjectIndex("plunger"));
-  }
-
 }

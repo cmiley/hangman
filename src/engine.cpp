@@ -102,104 +102,19 @@ void Engine::Keyboard()
   else if(m_event.type == SDL_KEYDOWN)
   {
     // handle key down events here
-    if(m_event.key.keysym.sym == SDLK_ESCAPE || m_event.key.keysym.sym == SDLK_q)
+    if (m_event.key.keysym.sym == SDLK_ESCAPE)
     {
       m_running = false;
     }
 
-    //left arrow and right arrow, rotates the camera to the left and to the right
-    else if(m_event.key.keysym.scancode == 80 || m_event.key.keysym.scancode == 79)
-    {
-      float rotationScale = 360.0f / m_WINDOW_WIDTH;
+    //std::cout << m_event.key.keysym.scancode << endl;
 
-      if (m_event.key.keysym.scancode == 80) //the left arrow
-      {
-        rotation += (rotationScale * -6);
-      }
-      else //the right arrow
-      {
-        rotation += (rotationScale * 6);
-      }
-      
-      //to get back in 0 - 360 if needed
-      while(rotation > 360)
-      {
-        rotation -= 360.0f;
-      }
-      while(rotation < 0)
-      {
-        rotation += 360.0f;
-      }
+    //check if in A(4) through Z(29)
+    if (m_event.key.keysym.scancode >= 4 && m_event.key.keysym.scancode <= 29)
+    {
+      //cout << endl << "GOOD" << endl;
     }
 
-    //up arrow and down arrow, zooms in and out
-    else if(m_event.key.keysym.scancode == 82 || m_event.key.keysym.scancode == 81)
-    {
-      float zoomScale = 0.1f * zoom;
-
-      //zoom in
-      if(m_event.key.keysym.scancode == 82) // up arrow
-      {
-        zoom -= zoomScale;
-      }
-      else //down arrow
-      {
-        zoom += zoomScale;
-      }
-
-      //to lock distances
-      if (zoom > 2)
-      {
-        zoom = 2;
-      }
-      if (zoom < 0)
-      {
-        zoom = 0;
-      }
-
-      m_window->SetZoom(zoom);
-    }
-
-    //space
-    else if(m_event.key.keysym.scancode == 44)
-    {
-      m_graphics->applyForcePlunger( 1000000 );
-      
-    }
-    //x
-    else if(m_event.key.keysym.scancode == SDL_SCANCODE_X )
-    {
-      m_graphics->ballDrained();
-      m_graphics->getPhysics()->setPosition( btVector3( 4.2,0,4), m_graphics->lookupObjectIndex("ball"));
-      m_graphics->getPhysics()->setPosition( btVector3( 4.3,.1,6), m_graphics->lookupObjectIndex("plunger"));
-    }
-
-    //z left paddel
-    else if(m_event.key.keysym.scancode == SDL_SCANCODE_Z )
-    {
-       //m_graphics->getPhysics()->applyTorque( btVector3( 0, 1000, 0), m_graphics->lookupObjectIndex("paddleL") );
-    }
-    else if(m_event.key.keysym.scancode == SDL_SCANCODE_C )
-    {
-       //m_graphics->getPhysics()->applyTorque( btVector3( 0, -1000, 0), m_graphics->lookupObjectIndex("paddleR") );
-    }
-  }
-
-  //For swaping shader programs
-  if (m_event.key.keysym.scancode == SDL_SCANCODE_V)
-  {
-  	selector = PER_VERTEX;
-    m_window->setSelector(1);
-  }
-  if (m_event.key.keysym.scancode == SDL_SCANCODE_F)
-  {
-    selector = PER_FRAGMENT;
-    m_window->setSelector(2);
-  }
-  if (m_event.key.keysym.scancode == SDL_SCANCODE_P)
-  {
-    selector = PASSTHROUGH;
-    m_window->setSelector(0);
   }
 
   //For rotating around a point, right mouse button and move the mouse
