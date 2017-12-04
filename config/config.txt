@@ -5,9 +5,17 @@ positionX 4.2
 positionY 0
 positionZ 4
 
-objName warehouse
-objFileName Models/warehouse1.obj
-objTextureName Textures/chrome.jpg
+objName warehouseRoom
+objFileName Models/warehouseRoom.obj
+objTextureName Textures/gray.png
 positionX 0
 positionY 0
 positionZ 0
+
+objName warehouseRoof
+objFileName Models/warehouseRoof.obj
+objTextureName Textures/metal.jpg
+positionX 0
+positionY 0
+positionZ 0
+
