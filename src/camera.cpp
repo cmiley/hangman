@@ -19,7 +19,7 @@ bool Camera::Initialize(int w, int h)
   positionX = 0.0;
   positionZ = -16.0;
 
-  view = glm::lookAt( glm::vec3(0.0, 14.0, -16.0), //Eye Position
+  view = glm::lookAt( glm::vec3(0.0, 2.0, 0.0), //Eye Position
                       glm::vec3(0.0, 0.0, 0.0), //Focus point
                       glm::vec3(0.0, 1.0, 0.0)); //Positive Y is up
 
@@ -43,13 +43,13 @@ glm::mat4 Camera::GetView()
 
 bool Camera::Update(float rotation, float zoom)
 {
-  glm::vec3 tempVec = glm::vec3(0.0, 14.0, -16.0);
+  glm::vec3 tempVec = glm::vec3(0.0, 2.0, 0.0);
   float angle = rotation * (float) M_PI / 180.0f;
   
-  tempVec = glm::rotate(tempVec, angle, glm::vec3(0.0, 1.0, 0.0));
-  tempVec *= zoom;
+  //tempVec = glm::rotate(tempVec, angle, glm::vec3(0.0, 1.0, 0.0));
+  //tempVec *= zoom;
 
   view = glm::lookAt( tempVec, //Eye Position
-                      glm::vec3(0.0, 0.0, 0.0), //Focus point
+                      glm::vec3(sin(angle), 2.0, cos(angle)), //Focus point
                       glm::vec3(0.0, 1.0, 0.0)); //Positive Y is up
 }
