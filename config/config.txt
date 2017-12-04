@@ -2,7 +2,7 @@ objName ball
 objFileName Models/ball.obj
 objTextureName Textures/chrome.jpg
 positionX 4.2
-positionY 0
+positionY 3
 positionZ 4
 
 objName warehouseRoom
@@ -25,3 +25,4 @@ objTextureName Textures/concrete.jpg
 positionX 0
 positionY 0
 positionZ 0
+

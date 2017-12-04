@@ -224,8 +224,6 @@ void Physics::addHingeConstraint(int selector)
 void Physics::myTickCallback()
 {
   
-  int scoreLength;
-  int static lastScore = 0;
   /*
   int numManifolds = dynamicsWorld->getDispatcher()->getNumManifolds();
   for (int i = 0; i < numManifolds; i++)
@@ -289,19 +287,4 @@ void Physics::myTickCallback()
     }
   }
   */
-  int ballz = getPos( 0 )[2];
-
-  if( ballz <= .000002 && ballz >= -.000002 )
-  {
-    score += 10;
-  }
-  
-  scoreLength = 1;
-  while ( lastScore /= 10 )
-   scoreLength++;
-
-  lastScore = score;
-  for(int index = 0; index < scoreLength; ++index )
-    cout << '\b';
-  cout << score;
 }
