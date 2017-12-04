@@ -25,7 +25,6 @@ sudo apt-get install libopenal-dev
 ### CMake Instructions
 The building of the project is done using CMake, installation with apt-get or brew may be necessary.
 
-=======
 Use cmake with following commands (if cmake is not installed, install it with apt-get or brew):
 ```bash
 mkdir build
