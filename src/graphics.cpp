@@ -99,7 +99,8 @@ bool Graphics::Initialize(int width, int height)
   m_physics->rotate( glm::radians(180.) , paddleRindex );
   m_physics->rotate( glm::radians(1.) , paddleLindex   );
   */
-  //m_physics->addGroundPlane(3);
+  
+  m_physics->addGroundPlane(0);
 
   // Set up the shaders
   m_passthrough = new Shader();
