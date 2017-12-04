@@ -67,7 +67,7 @@ bool Graphics::Initialize(int width, int height)
     //cout << "INDEX: "  << index << " NAME: " << objectNames[index] << endl;
 
     //for satics 
-  	if ((objectNames[index].find("table") != string::npos) || (objectNames[index].find("bumper") != string::npos) 
+  	if ((objectNames[index].find("warehouse") != string::npos) || (objectNames[index].find("bumper") != string::npos) 
          || (objectNames[index].find("lane") != string::npos) || (objectNames[index].find("corner") != string::npos) 
          || (objectNames[index].find("gutter") != string::npos) || (objectNames[index].find("backboard") != string::npos)
          || (objectNames[index].find("Triangle") != string::npos))

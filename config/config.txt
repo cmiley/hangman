@@ -4,3 +4,10 @@ objTextureName Textures/chrome.jpg
 positionX 4.2
 positionY 0
 positionZ 4
+
+objName warehouse
+objFileName Models/warehouse1.obj
+objTextureName Textures/chrome.jpg
+positionX 0
+positionY 0
+positionZ 0
