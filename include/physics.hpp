@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "graphics_headers.h"
+#include "graphics_headers.hpp"
 
 using namespace std;
 

@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <fstream>
-#include "graphics_headers.h"
+#include "graphics_headers.hpp"
 
 class Shader
 {

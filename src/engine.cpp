@@ -1,4 +1,4 @@
-#include "engine.h"
+#include "engine.hpp"
 
 Engine::Engine(string name, int width, int height)
 {
@@ -42,12 +42,12 @@ bool Engine::Initialize()
     return false;
   }
 
-  device = alcOpenDevice(NULL);
-  if (!device)
-  {
-    printf("The audio failed to initialize\n");
-    return false;
-  }
+//  device = alcOpenDevice(NULL);
+//  if (!device)
+//  {
+//    printf("The audio failed to initialize\n");
+//    return false;
+//  }
 
   gameState = 0;
 

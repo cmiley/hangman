@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <string>
-#include "graphics_headers.h"
+#include "graphics_headers.hpp"
 using namespace std;
 
 class Window

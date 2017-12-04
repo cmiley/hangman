@@ -7,8 +7,8 @@
 #include <AL/alc.h>
 
 #include "window.h"
-#include "graphics.h"
-#include "camera.h"
+#include "graphics.hpp"
+#include "camera.hpp"
 
 class Engine
 {

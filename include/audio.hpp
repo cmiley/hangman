@@ -1,7 +1,7 @@
 #ifndef PINBALL_AUDIO_H
 #define PINBALL_AUDIO_H
 
-#include "graphics_headers.h"
+#include "graphics_headers.hpp"
 #include <AL/al.h>
 #include <AL/alc.h>
 //#include <AL/alut.h>
@@ -20,11 +20,6 @@ class Audio
   private:
     ALCdevice* device;
     ALCcontext *context;
-    ALfloat listenerPos[]={0.0,0.0,4.0};
-    ALfloat listenerVel[]={0.0,0.0,0.0};
-    ALfloat listenerOri[]={0.0,0.0,1.0, 0.0,1.0,0.0};
-    ALfloat source0Pos[]={-2.0, 0.0, 0.0};
-    ALfloat source0Vel[]={0.0, 0.0, 0.0};
 
     ALuint  buffer[NUM_BUFFERS];
     ALuint  source[NUM_SOURCES];

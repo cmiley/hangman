@@ -39,7 +39,7 @@
 #include <btBulletDynamicsCommon.h>
 
 // ImGui for menus
-#include "imgui.h"
+#include "imgui.hpp"
 #include "imgui_impl_sdl_gl3.h"
 
 #define INVALID_UNIFORM_LOCATION 0x7fffffff
