@@ -58,9 +58,11 @@ bool Engine::Initialize()
   gameWord = new char [word.size()];
   for (int index = 0; index < word.size(); index++)
   {
-    gameWord[index] = '.';
+    gameWord[index] = '_';
   }
   gameWord[word.size()] = '\0';
+
+  printWord();
 
   // Set the time
   m_currentTimeMillis = GetCurrentTimeMillis();
@@ -153,15 +155,16 @@ void Engine::Keyboard()
         //if it is valid else
         if (checkIfCharIsValid(letter))
         {
-          std::cout << "GOOD" << std::endl;
+          std::cout << "Correct!" << std::endl;
           updateWord(letter);
         }
         else 
         {
-          std::cout << "WRONG" << std::endl;
+          std::cout << "Wrong, you have " << 5 - numberWrong << " tries left!" << std::endl;
           numberWrong++;
         }
       }
+      printWord();
     }
 
   }
@@ -263,6 +266,7 @@ void Engine::gameOver(int selector)
   if (selector == 0)
   {
     std::cout << "You lose!" << std::endl;
+    std::cout << "The word was " << word << "!" << std::endl;
     m_running = false;
   }
   else
@@ -291,7 +295,7 @@ void Engine::readWordFromFile()
 
     word = tempString;
 
-    std::cout << word << std::endl;
+    std::cout << "Your word is " << word.size() << " letters long..." << std::endl;
   }
   else
   {
@@ -320,22 +324,26 @@ void Engine::updateWord(char letter)
       gameWord[index] = letter;
     }
   }
-
-  for (int index = 0; index < word.size(); index++)
-  {
-    std::cout << gameWord[index] << ' ';
-  }
-  std::cout << std::endl;
 }
 
 bool Engine::checkIfWin()
 {
   for (int index = 0; index < word.size(); index++)
   {
-    if (gameWord[index] == '.')
+    if (gameWord[index] == '_')
     {
       return false;
     }
   }
   return true;
+}
+
+void Engine::printWord()
+{
+  std::cout << "Current Word: ";
+  for (int index = 0; index < word.size(); index++)
+  {
+    std::cout << gameWord[index] << ' ';
+  }
+  std::cout << std::endl;
 }

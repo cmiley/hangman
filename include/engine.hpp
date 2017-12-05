@@ -61,6 +61,9 @@ class Engine
     //checks if the word is complete
     bool checkIfWin();
 
+    //prints the game word
+    void printWord();
+
   private:
     // Window related variables
     Window *m_window;    

@@ -6,9 +6,9 @@
 int main(int argc, char **argv)
 {
   // Start an engine and run it then cleanup after
-  std::cout << "We'll do it live!" << std::endl;
+  std::cout << "Welcome to Hangman!" << std::endl << std::endl;
   
-  Engine *engine = new Engine("Pinball", 1280, 720);
+  Engine *engine = new Engine("Hangman", 1280, 720);
   if(!engine->Initialize())
   {
     printf("The engine failed to start.\n");
