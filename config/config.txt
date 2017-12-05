@@ -26,3 +26,9 @@ positionX 0
 positionY 0
 positionZ 0
 
+objName man
+objFileName Models/character_male.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 0
+positionZ -7
