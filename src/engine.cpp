@@ -51,7 +51,16 @@ bool Engine::Initialize()
 
   gameState = 0;
 
+  //reads a random word from word.txt
   readWordFromFile();
+
+  //set up gameWord for use
+  gameWord = new char [word.size()];
+  for (int index = 0; index < word.size(); index++)
+  {
+    gameWord[index] = '.';
+  }
+  gameWord[word.size()] = '\0';
 
   // Set the time
   m_currentTimeMillis = GetCurrentTimeMillis();
@@ -90,6 +99,20 @@ void Engine::Run()
 
     // Swap to the Window
     m_window->Swap();
+
+    //check if guessed too many times
+    if (numberWrong >= 6)
+    {
+      //trigger lose state
+      gameOver(0);
+    }
+
+    //check if word is complete
+    if (checkIfWin())
+    {
+      //trigger win state
+      gameOver(1);
+    }
   }
 }
 
@@ -112,7 +135,33 @@ void Engine::Keyboard()
     //check if in A(4) through Z(29)
     if (m_event.key.keysym.scancode >= 4 && m_event.key.keysym.scancode <= 29)
     {
-      //cout << endl << "GOOD" << endl;
+      //set it according to ascii code(minus 4 plus 97)
+      char letter = m_event.key.keysym.scancode + 93;
+
+      //std::cout << letter << std::endl;
+      
+      //if we have used it, else
+      if (checkIfUsedLetter(letter))
+      {
+        std::cout << "You have used this letter already!" << std::endl;
+      }
+      else
+      {
+        //set the letter to have been used
+        alphabet[letter - 97] = 1;
+
+        //if it is valid else
+        if (checkIfCharIsValid(letter))
+        {
+          std::cout << "GOOD" << std::endl;
+          updateWord(letter);
+        }
+        else 
+        {
+          std::cout << "WRONG" << std::endl;
+          numberWrong++;
+        }
+      }
     }
 
   }
@@ -208,9 +257,19 @@ void Engine::updateGameState()
 
 }
 
-void Engine::gameOver()
+void Engine::gameOver(int selector)
 {
-
+  std::cout << "Game Over!" << std::endl;
+  if (selector == 0)
+  {
+    std::cout << "You lose!" << std::endl;
+    m_running = false;
+  }
+  else
+  {
+    std::cout << "You Win!" << std::endl;
+    m_running = false;
+  }
 }
 
 void Engine::readWordFromFile()
@@ -240,4 +299,43 @@ void Engine::readWordFromFile()
   }
 
   fin.close();
+}
+
+bool Engine::checkIfCharIsValid(char letter)
+{
+  return (word.find(letter) != std::string::npos);
+}
+
+bool Engine::checkIfUsedLetter(char letter)
+{
+  return alphabet[letter - 97] != 0;
+}
+
+void Engine::updateWord(char letter)
+{
+  for (int index = 0; index < word.size(); index++)
+  {
+    if (letter == word[index])
+    {
+      gameWord[index] = letter;
+    }
+  }
+
+  for (int index = 0; index < word.size(); index++)
+  {
+    std::cout << gameWord[index] << ' ';
+  }
+  std::cout << std::endl;
+}
+
+bool Engine::checkIfWin()
+{
+  for (int index = 0; index < word.size(); index++)
+  {
+    if (gameWord[index] == '.')
+    {
+      return false;
+    }
+  }
+  return true;
 }

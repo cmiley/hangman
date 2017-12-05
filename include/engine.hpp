@@ -43,11 +43,23 @@ class Engine
     //Updates state of game for game logic
     void updateGameState();
 
-    //triggers a game over
-    void gameOver();
+    //triggers a game over, 0 is lose, 1 is win
+    void gameOver(int);
   
     //reads in a word from words/words.txt
     void readWordFromFile();
+
+    //checks if a letter is in the word
+    bool checkIfCharIsValid(char);
+
+    //checks if we have already used a leter, returns true if we have
+    bool checkIfUsedLetter(char);
+
+    //updates and fills in gameWord if letter chosen is valid
+    void updateWord(char);
+
+    //checks if the word is complete
+    bool checkIfWin();
 
   private:
     // Window related variables
@@ -71,7 +83,10 @@ class Engine
     unsigned int gameState;
 
     std::string word;
-
+    int alphabet[26] = {0};
+    int numberWrong = 0;
+    char *gameWord;
+    
 };
 
 #endif // ENGINE_H
