@@ -3,12 +3,11 @@
 
 #include <sys/time.h>
 #include <assert.h>
-#include <AL/al.h>
-#include <AL/alc.h>
 
-#include "window.h"
+#include "window.hpp"
 #include "graphics.hpp"
 #include "camera.hpp"
+#include "audio.hpp"
 
 class Engine
 {
@@ -74,6 +73,7 @@ class Engine
     SDL_Event m_event;
 
     Graphics *m_graphics;
+    Audio *m_audio;
     unsigned int m_DT;
     long long m_currentTimeMillis;
     bool m_running;

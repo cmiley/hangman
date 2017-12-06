@@ -1,4 +1,4 @@
-#include <window.h>
+#include <window.hpp>
 
 Window::Window()
 {
@@ -94,19 +94,19 @@ void Window::RunMenu()
   bool value = true;
 
   {
-    ImGui::Begin("PA9 Variables", &value);
+    ImGui::Begin("Hangman Menu", &value);
     static float f = 0.0f;
-    ImGui::Text("Edit the variables below to see changes in the lighting of the program.");
-    ImGui::SliderFloat("Zoom", &imgui_vars.zoom, 0.0f, 2.0f);
-    ImGui::SliderFloat("Spotlight Size", &imgui_vars.spot_size, 0.0f, 5.0f);
-    ImGui::SliderFloat("Spotlight Brightness", &imgui_vars.spot_brightness, 0.0f, 1.0f);
-    ImGui::ColorEdit3("Ambient Brightness", (float*)&imgui_vars.ambient);
-    ImGui::ColorEdit3("Cube specular Brightness", (float*)&imgui_vars.specular);
-    ImGui::ColorEdit3("Diffuse Brightness", (float*)&imgui_vars.diffuse);
-    ImGui::SliderFloat("Cube Shininess", &imgui_vars.shininess, 0.0f, 1.0f);
-    ImGui::SliderFloat3("Light Position", imgui_vars.light_pos, 0, 10);
-    ImGui::SliderFloat("Table Angle", &imgui_vars.tableAngle, -30., 30.);
-    ImGui::Checkbox("MEAT MODE", &imgui_vars.meat_mode);
+//    ImGui::Text("Edit the variables below to see changes in the lighting of the program.");
+//    ImGui::SliderFloat("Zoom", &imgui_vars.zoom, 0.0f, 2.0f);
+//    ImGui::SliderFloat("Spotlight Size", &imgui_vars.spot_size, 0.0f, 5.0f);
+//    ImGui::SliderFloat("Spotlight Brightness", &imgui_vars.spot_brightness, 0.0f, 1.0f);
+//    ImGui::ColorEdit3("Ambient Brightness", (float*)&imgui_vars.ambient);
+//    ImGui::ColorEdit3("Cube specular Brightness", (float*)&imgui_vars.specular);
+//    ImGui::ColorEdit3("Diffuse Brightness", (float*)&imgui_vars.diffuse);
+//    ImGui::SliderFloat("Cube Shininess", &imgui_vars.shininess, 0.0f, 1.0f);
+//    ImGui::SliderFloat3("Light Position", imgui_vars.light_pos, 0, 10);
+//    ImGui::SliderFloat("Table Angle", &imgui_vars.tableAngle, -30., 30.);
+//    ImGui::Checkbox("MEAT MODE", &imgui_vars.meat_mode);
     ImGui::RadioButton("Passthrough", &imgui_vars.s_selector, 0); ImGui::SameLine();
     ImGui::RadioButton("Per Vertex", &imgui_vars.s_selector, 1); ImGui::SameLine();
     ImGui::RadioButton("Per Fragment", &imgui_vars.s_selector, 2);
