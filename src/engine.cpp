@@ -49,7 +49,7 @@ bool Engine::Initialize()
 //    return false;
 //  }
 
-  m_audio->Initialize();
+  //m_audio->Initialize();
   gameState = 0;
 
   //reads a random word from word.txt

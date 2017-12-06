@@ -24,10 +24,7 @@ bool Audio::Initialize()
 //
 //  return false;
 
-  std::string file = "audio/test.wav";
-
-  if(!SDL_LoadWAV(file.c_str(), &wavspec, &wavbuf, &wavlen))
-    return false;
+  std::string file = "../audio/test.wav";
 
   ALfloat listenerOri[] = { 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f };
 
@@ -39,6 +36,8 @@ bool Audio::Initialize()
   }
 
   list_audio_devices(alcGetString(nullptr, ALC_DEVICE_SPECIFIER));
+
+  std::cout << "after listing devices" << std::endl;
 
   if (!defaultDeviceName)
     defaultDeviceName = alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER);
@@ -84,6 +83,14 @@ bool Audio::Initialize()
   alSourcei(source, AL_LOOPING, AL_FALSE);
   TEST_ERROR("source looping");
 
+  std::cout << "after sourcing" << std::endl;
+
+  if(!SDL_LoadWAV(file.c_str(), &wavspec, &wavbuf, &wavlen))
+  {
+    fprintf(stderr, "Unable to load sound file\n");
+    return false;
+  }
+
   alGenBuffers(1, &buffer);
   TEST_ERROR("buffer generation");
 
@@ -121,6 +128,8 @@ bool Audio::Initialize()
     alGetSourcei(source, AL_SOURCE_STATE, &source_state);
     TEST_ERROR("source state get");
   }
+
+  std::cout << "exiting" << std::endl;
 
   /* exit context */
   alDeleteSources(1, &source);
