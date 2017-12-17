@@ -51,51 +51,51 @@ positionZ -7
 objName head
 objFileName Models/head.obj
 objTextureName Textures/body.png
-positionX 0
+positionX 1
 positionY 1
 positionZ 0
 
 objName torso
 objFileName Models/torso.obj
 objTextureName Textures/body.png
-positionX 0
-positionY 6
+positionX 4
+positionY 1
 positionZ 0
 
 objName rArm
 objFileName Models/rArm.obj
 objTextureName Textures/body.png
-positionX 0
-positionY 2
+positionX -2
+positionY 5
 positionZ 0
 
 objName lArm
 objFileName Models/lArm.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 3
-positionZ 0
+positionY 1
+positionZ 4
 
 objName rLeg
 objFileName Models/rLeg.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 4
-positionZ 0
+positionY 1
+positionZ -4
 
 objName lLeg
 objFileName Models/lLeg.obj
 objTextureName Textures/body.png
-positionX 0
-positionY 5
-positionZ 0
+positionX 4
+positionY 1
+positionZ 4
 
 objName barrel
 objFileName Models/barrel.obj
 objTextureName Textures/barrelRed.png
-positionX 0
+positionX 5
 positionY 0
-positionZ 0
+positionZ 5
 
 objName rope
 objFileName Models/rope.obj
