@@ -126,13 +126,16 @@ bool Graphics::Initialize(int width, int height)
     }
   } 
 
+  cout << lookupObjectIndex("head") << endl;
+
+  m_physics->attachLimbs(lookupObjectIndex("head"));
 
   paddleLindex = lookupObjectIndex( "leftPaddle");
   paddleRindex = lookupObjectIndex( "rightPaddle");
   ballIndex = lookupObjectIndex( "ball" );
 
   
-  //m_physics->addGroundPlane(0);
+  m_physics->addGroundPlane(0);
 
   // Set up the shaders
   m_passthrough = new Shader();

@@ -65,6 +65,9 @@ class Physics
     //returns height of object using an index
     float getHeight(int);
 
+    //attaches the limbs together and attaches the head to the rope
+    void attachLimbs(int);
+
   private:
     btBroadphaseInterface* broadphase;
     btDefaultCollisionConfiguration* collisionConfiguration;
