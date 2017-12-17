@@ -1,5 +1,26 @@
-objName warehouseRoom
-objFileName Models/warehouseRoom.obj
+objName warehouseRoomL
+objFileName Models/warehouseRoomL.obj
+objTextureName Textures/gray.png
+positionX 0
+positionY 0
+positionZ 0
+
+objName warehouseRoomR
+objFileName Models/warehouseRoomR.obj
+objTextureName Textures/gray.png
+positionX 0
+positionY 0
+positionZ 0
+
+objName warehouseRoomU
+objFileName Models/warehouseRoomU.obj
+objTextureName Textures/gray.png
+positionX 0
+positionY 0
+positionZ 0
+
+objName warehouseRoomD
+objFileName Models/warehouseRoomD.obj
 objTextureName Textures/gray.png
 positionX 0
 positionY 0
@@ -26,9 +47,4 @@ positionX 0
 positionY 0
 positionZ -7
 
-objName rope
-objFileName Models/rope.obj
-objTextureName blue.jpg
-positionX 0
-positionY 0
-positionZ 0
+
