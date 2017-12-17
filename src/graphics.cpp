@@ -1,33 +1,3 @@
-/*
-objName warehouseRoom
-objFileName Models/warehouseRoom.obj
-objTextureName Textures/gray.png
-positionX 0
-positionY 0
-positionZ 0
-
-objName warehouseRoof
-objFileName Models/warehouseRoof.obj
-objTextureName Textures/metal.jpg
-positionX 0
-positionY 0
-positionZ 0
-
-objName warehouseFloor
-objFileName Models/warehouseFloor.obj
-objTextureName Textures/concrete.jpg
-positionX 0
-positionY 0
-positionZ 0
-
-objName man
-objFileName Models/character_male.obj
-objTextureName Textures/body.png
-positionX 0
-positionY 0
-positionZ -7
-*/
-
 #include "graphics.hpp"
 
 using namespace std;
@@ -130,7 +100,7 @@ bool Graphics::Initialize(int width, int height)
     //if it is rope
     else
     {
-      int totalRope = 5;
+      int totalRope = 10;
       btCollisionShape *genericShape;
       
       for (int jindex = 0; jindex < totalRope; jindex++)
@@ -141,7 +111,7 @@ bool Graphics::Initialize(int width, int height)
         genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
 
         objectVector.push_back(genericObject);
-        std::cout << "size: " << objectVector.size() << endl;
+        //std::cout << "size: " << objectVector.size() << endl;
       }
       m_physics->createRope(genericShape, totalRope);
     }
@@ -260,7 +230,7 @@ void Graphics::Update(unsigned int dt)
   {
     temp = m_physics->Update(dt, index);
     objectVector[index]->Update(dt, temp);
-    std::cout << "Height of " << index << ": " << m_physics->getHeight(index) << std::endl;
+    //std::cout << "Height of " << index << ": " << m_physics->getHeight(index) << std::endl;
   }
 }
 

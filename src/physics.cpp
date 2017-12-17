@@ -170,11 +170,11 @@ void Physics::createRope(btCollisionShape* colShape, int totalRope)
 		btRigidBody* r1 = rope[i];
 		btRigidBody* r2 = rope[i + 1];
 
-		btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(-0.5,0.25,0), btVector3(-0.5,-0.25,0));
+		btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.0,0.5,0), btVector3(0.0,-0.5,0));
 		dynamicsWorld->addConstraint(leftSpring);
 
-		btPoint2PointConstraint* rightSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.5,0.25,0), btVector3(0.5,-0.25,0));
-		dynamicsWorld->addConstraint(rightSpring);
+		//btPoint2PointConstraint* rightSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.5,0.25,0), btVector3(0.5,-0.25,0));
+		//dynamicsWorld->addConstraint(rightSpring);
 	}
 }
 
