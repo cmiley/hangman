@@ -78,11 +78,23 @@ btRigidBody* Physics::addObject(btCollisionShape* shape, btDefaultMotionState* m
   btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, motionState, shape, fallInertia);
   btRigidBody* tempBody = new btRigidBody(fallRigidBodyCI);
   
-  tempBody->setFriction(1.);
-  
+
   physicsObjectVector.push_back(tempBody);
-  dynamicsWorld->addRigidBody(physicsObjectVector.back());
+
+  if (name == "rope")
+  {
+  	dynamicsWorld->addRigidBody(physicsObjectVector.back(), (1<<(0)), (1<<(1)));
+  }
+  else
+  {
+  	dynamicsWorld->addRigidBody(physicsObjectVector.back());
+  }
+
+  tempBody->setFriction(1.);
+
   
+  std::cout << physicsObjectVector.size();
+
   return tempBody;
 }
 
@@ -136,10 +148,8 @@ void Physics::addHingeConstraint(int selector)
 
 }
 
-void Physics::createRope(btCollisionShape* colShape)
+void Physics::createRope(btCollisionShape* colShape, int totalRope)
 {
-	int totalRope = 10;
-
 	btTransform startTransform;
 	startTransform.setIdentity();
 	btScalar  mass(1.f);
@@ -148,23 +158,30 @@ void Physics::createRope(btCollisionShape* colShape)
 
 	std::string tempString = "rope";
 
-	btDefaultMotionState* genericMotionState = new btDefaultMotionState(startTransform);
-
-	for(int i = 0; i < totalRope; ++i) 
+	for(int i = 0; i < totalRope; i++) 
 	{ 
-		startTransform.setOrigin(btVector3(btScalar(0),btScalar(5+i*2),btScalar(0)));
+		startTransform.setOrigin(btVector3(btScalar(0),btScalar(i*3),btScalar(0)));
+		btDefaultMotionState* genericMotionState = new btDefaultMotionState(startTransform);
 		rope.push_back(addObject(colShape, genericMotionState, ((i == lastBoxIndex) ? 0:mass), tempString));    
 	}
 
-	for(int i = 0; i < totalRope - 1; ++i) 
+	for(int i = 0; i < totalRope - 1; i++) 
 	{
 		btRigidBody* r1 = rope[i];
 		btRigidBody* r2 = rope[i + 1];
 
-		btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(-0.5,1,0), btVector3(-0.5,-1,0));
+		btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(-0.5,0.25,0), btVector3(-0.5,-0.25,0));
 		dynamicsWorld->addConstraint(leftSpring);
 
-		btPoint2PointConstraint* rightSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.5,1,0), btVector3(0.5,-1,0));
+		btPoint2PointConstraint* rightSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.5,0.25,0), btVector3(0.5,-0.25,0));
 		dynamicsWorld->addConstraint(rightSpring);
 	}
+}
+
+float Physics::getHeight(int index)
+{
+	btTransform trans;
+	physicsObjectVector[index]->getMotionState()->getWorldTransform(trans);
+
+	return trans.getOrigin().getY();
 }
