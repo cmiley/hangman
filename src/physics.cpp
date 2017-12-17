@@ -2,7 +2,7 @@
 
 Physics::Physics()
 {
-  grav = 2.;
+  grav = 10.;
   gravAngle = 0;
   zGrav = grav*sin( gravAngle );
   yGrav = -grav*cos( gravAngle );
@@ -90,7 +90,7 @@ btRigidBody* Physics::addObject(btCollisionShape* shape, btDefaultMotionState* m
   	dynamicsWorld->addRigidBody(physicsObjectVector.back());
   }
 
-  tempBody->setFriction(0);
+  tempBody->setFriction(50.);
 
   return tempBody;
 }
