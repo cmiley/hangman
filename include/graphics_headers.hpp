@@ -7,6 +7,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -17,7 +18,6 @@
   #include <OpenGL/GLU.h>
 #else //linux as default
   #include <GL/glew.h>
-  #include <GL/glut.h>
 #endif
 
 // GLM for matricies
@@ -39,9 +39,6 @@
 #include <SDL2/SDL.h>
 
 #include <btBulletDynamicsCommon.h>
-
-#include <ft2build.h>
-#include FT_FREETYPE_H
 
 // ImGui for menus
 #include "imgui.hpp"

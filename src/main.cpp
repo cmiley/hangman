@@ -5,8 +5,6 @@
 
 int main(int argc, char **argv)
 {
-  glutInit(&argc,argv);
-  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH );
   // Start an engine and run it then cleanup after
   std::cout << "Welcome to Hangman!" << std::endl << std::endl;
   

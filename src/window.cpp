@@ -87,15 +87,18 @@ bool Window::Initialize(const string &name, int* width, int* height)
   return true;
 }
 
-void Window::RunMenu()
+void Window::RunMenu(string text)
 {
 
   ImGui_ImplSdlGL3_NewFrame(gWindow);
   bool value = true;
 
+  string len = to_string(text.length());
+
   {
     ImGui::Begin("Hangman Menu", &value);
-    static float f = 0.0f;
+    ImGui::Text("Your word is "); ImGui::SameLine(); ImGui::Text(len.c_str()); ImGui::SameLine(); ImGui::Text(" letters long...");
+    ImGui::Text("Your current word is: "); ImGui::SameLine(); ImGui::Text(text.c_str());
 //    ImGui::Text("Edit the variables below to see changes in the lighting of the program.");
 //    ImGui::SliderFloat("Zoom", &imgui_vars.zoom, 0.0f, 2.0f);
 //    ImGui::SliderFloat("Spotlight Size", &imgui_vars.spot_size, 0.0f, 5.0f);

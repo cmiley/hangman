@@ -6,7 +6,6 @@ Engine::Engine(string name, int width, int height)
   m_WINDOW_WIDTH = width;
   m_WINDOW_HEIGHT = height;
   m_FULLSCREEN = false;
-  graphics_font = GLUT_BITMAP_9_BY_15;
 }
 
 Engine::Engine(string name)
@@ -65,7 +64,6 @@ bool Engine::Initialize()
   gameWord[word.size()] = '\0';
 
   printWord();
-  renderBitmapString(gameWord, 10, 10, 10);
 
   // Set the time
   m_currentTimeMillis = GetCurrentTimeMillis();
@@ -100,7 +98,7 @@ void Engine::Run()
 
     //updateGameState();
 
-    m_window->RunMenu();
+    m_window->RunMenu(gameWord);
 
     // Swap to the Window
     m_window->Swap();
@@ -350,15 +348,4 @@ void Engine::printWord()
     std::cout << gameWord[index] << ' ';
   }
   std::cout << std::endl;
-}
-
-void Engine::renderBitmapString(string text, float x, float y, float z)
-{
-  int index;
-
-  glRasterPos3d(x,y,z);
-  for(index = 0; index < text.length(); index++)
-  {
-    glutBitmapCharacter(graphics_font, text[index]);
-  }
 }

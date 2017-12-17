@@ -63,8 +63,6 @@ class Engine
     //prints the game word
     void printWord();
 
-    void renderBitmapString(string text, float x, float y, float z);
-
   private:
     // Window related variables
     Window *m_window;    
@@ -90,8 +88,7 @@ class Engine
     std::string word;
     int alphabet[26] = {0};
     int numberWrong = 0;
-    string gameWord;
-    void* graphics_font;
+    char* gameWord;
     
 };
 

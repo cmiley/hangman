@@ -23,7 +23,7 @@ sudo apt-get install libopenal-dev
 sudo apt-get install libalut-dev
 sudo apt-get install libxmu-dev libxi-dev
 sudo apt-get install freeglut3-dev 
-
+sudo apt-get install libfreetype6-dev
 ```
 
 ### CMake Instructions

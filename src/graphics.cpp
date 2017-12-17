@@ -98,6 +98,7 @@ bool Graphics::Initialize(int width, int height)
       objectVector.push_back(genericObject);
       m_physics->addObject(genericShape, genericMotionState, mass, objectNames[index]);
     }
+
     //if it is rope
     else
     {
