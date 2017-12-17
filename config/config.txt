@@ -48,3 +48,10 @@ positionY 0
 positionZ -7
 
 
+objName barrel
+objFileName Models/barrel.obj
+objTextureName Textures/barrelRed.png
+positionX 0
+positionY 0
+positionZ 0
+
