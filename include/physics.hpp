@@ -92,6 +92,7 @@ class Physics
     std::vector<btRigidBody*> physicsObjectVector;
 
     unsigned int score;
+    float grav;
 
 
 };
