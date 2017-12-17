@@ -35,7 +35,7 @@ positionZ 0
 
 objName warehouseFloor
 objFileName Models/warehouseFloor.obj
-objTextureName Textures/concrete.jpg
+objTextureName Textures/bigCon2.jpg
 positionX 0
 positionY 0
 positionZ 0
@@ -44,9 +44,50 @@ objName man
 objFileName Models/character_male.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 0
+positionY 1
 positionZ -7
 
+objName head
+objFileName Models/head.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 1
+positionZ 0
+
+objName rArm
+objFileName Models/rArm.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 2
+positionZ 0
+
+objName lArm
+objFileName Models/lArm.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 3
+positionZ 0
+
+objName rLeg
+objFileName Models/rLeg.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 4
+positionZ 0
+
+objName lLeg
+objFileName Models/lLeg.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 5
+positionZ 0
+
+objName torso
+objFileName Models/torso.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 6
+positionZ 0
 
 objName barrel
 objFileName Models/barrel.obj

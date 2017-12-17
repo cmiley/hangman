@@ -4,7 +4,7 @@ using namespace std;
 
 Graphics::Graphics()
 {
-  balls = 2;
+  
 }
 
 Graphics::~Graphics()
@@ -66,13 +66,12 @@ bool Graphics::Initialize(int width, int height)
 
     genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
 
-    //cout << "INDEX: "  << index << " NAME: " << objectNames[index] << endl;
 
     //if not the rope
     if ((objectNames[index].find("rope") == string::npos))
     {
     	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
-    		|| (objectNames[index].find("warehouseFloor") != string::npos))
+    		|| (objectNames[index].find("warehouseFloor") != string::npos) || (objectNames[index].find("barrel") != string::npos))
 
     	{
     		mass = 0;
@@ -99,15 +98,6 @@ bool Graphics::Initialize(int width, int height)
       m_physics->createRope(genericShape);
     }
   } 
-
-  paddleLindex = lookupObjectIndex( "leftPaddle");
-  paddleRindex = lookupObjectIndex( "rightPaddle");
-  ballIndex = lookupObjectIndex( "ball" );
-
-  /*
-  m_physics->rotate( glm::radians(180.) , paddleRindex );
-  m_physics->rotate( glm::radians(1.) , paddleLindex   );
-  */
   
   m_physics->addGroundPlane(0);
 
@@ -349,11 +339,6 @@ void Graphics::readNamesFromConfig()
 btVector3 Graphics::glmToBullet(const glm::vec3& v) 
 { 
 	return btVector3(v.x, v.y, v.z); 
-}
-
-void Graphics::applyForcePlunger( float force )
-{
-  m_physics->applyForce( btVector3(0,0,force * -1.), lookupObjectIndex("plunger"));
 }
 
 int Graphics::lookupObjectIndex( string input )
