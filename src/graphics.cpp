@@ -109,6 +109,7 @@ bool Graphics::Initialize(int width, int height)
     //if it is rope
     else
     {
+      /*
       int totalRope = 10;
       btCollisionShape *genericShape;
       
@@ -123,6 +124,7 @@ bool Graphics::Initialize(int width, int height)
         //std::cout << "size: " << objectVector.size() << endl;
       }
       m_physics->createRope(genericShape, totalRope);
+      */
     }
   } 
 
@@ -132,7 +134,7 @@ bool Graphics::Initialize(int width, int height)
   ballIndex = lookupObjectIndex( "ball" );
 
   
-  //m_physics->addGroundPlane(0);
+  m_physics->addGroundPlane(0);
 
   // Set up the shaders
   m_passthrough = new Shader();
