@@ -98,7 +98,7 @@ bool Graphics::Initialize(int width, int height)
 
     	else
     	{
-  	    mass = 1;
+  	    mass = 10;
     	}
 
     	btDefaultMotionState* genericMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(glmToBullet(genericObject->GetPosition()))));

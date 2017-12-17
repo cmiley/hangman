@@ -54,6 +54,13 @@ positionX 0
 positionY 1
 positionZ 0
 
+objName torso
+objFileName Models/torso.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 6
+positionZ 0
+
 objName rArm
 objFileName Models/rArm.obj
 objTextureName Textures/body.png
@@ -80,13 +87,6 @@ objFileName Models/lLeg.obj
 objTextureName Textures/body.png
 positionX 0
 positionY 5
-positionZ 0
-
-objName torso
-objFileName Models/torso.obj
-objTextureName Textures/body.png
-positionX 0
-positionY 6
 positionZ 0
 
 objName barrel

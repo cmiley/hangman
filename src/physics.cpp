@@ -2,7 +2,7 @@
 
 Physics::Physics()
 {
-  grav = 2.;
+  grav = .1;
   gravAngle = 0;
   zGrav = grav*sin( gravAngle );
   yGrav = -grav*cos( gravAngle );
@@ -81,7 +81,7 @@ btRigidBody* Physics::addObject(btCollisionShape* shape, btDefaultMotionState* m
 
   physicsObjectVector.push_back(tempBody);
 
-  if (name == "rope")
+  if (name == "rope" || name == "head")
   {
   	dynamicsWorld->addRigidBody(physicsObjectVector.back(), (1<<(0)), 0);
   }
@@ -187,6 +187,15 @@ void Physics::attachLimbs(int indexOfHead)
 {
 	btRigidBody* r1 = rope[0];
 
-	btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *physicsObjectVector[indexOfHead], btVector3(-0.0,0.5,0), btVector3(-0.0,-0.5,0));
-	dynamicsWorld->addConstraint(leftSpring);
+	btPoint2PointConstraint* headToRopeR = new btPoint2PointConstraint(*r1, *physicsObjectVector[indexOfHead], btVector3(-0.1,-0.5,0), btVector3(-0.1,0.2,0));
+	dynamicsWorld->addConstraint(headToRopeR);
+
+	btPoint2PointConstraint* headToRopeL = new btPoint2PointConstraint(*r1, *physicsObjectVector[indexOfHead], btVector3(0.1,-0.5,0), btVector3(0.1,0.2,0));
+	dynamicsWorld->addConstraint(headToRopeL);
+
+	btPoint2PointConstraint* bodyToHeadR = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead], *physicsObjectVector[indexOfHead + 1], btVector3(-0.1,-0.1,0), btVector3(-0.1,0.6,0));
+	dynamicsWorld->addConstraint(bodyToHeadR);
+
+	btPoint2PointConstraint* bodyToHeadL = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead], *physicsObjectVector[indexOfHead + 1], btVector3(0.1,-0.1,0), btVector3(0.1,0.6,0));
+	dynamicsWorld->addConstraint(bodyToHeadL);
 }
