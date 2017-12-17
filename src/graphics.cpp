@@ -248,7 +248,7 @@ void Graphics::Update(unsigned int dt)
   }
 }
 
-void Graphics::Render(ShaderSelector selector, MenuVars* menu)
+void Graphics::Render(ShaderSelector selector, MenuVars* menu, int gameState)
 {
   //clear the screen
   glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -261,15 +261,15 @@ void Graphics::Render(ShaderSelector selector, MenuVars* menu)
   {
     case PASSTHROUGH:
       m_passthrough->Enable();
-      SendUniforms(m_passthrough, menu);
+      SendUniforms(m_passthrough, menu, gameState);
       break;
     case PER_FRAGMENT:
       m_fragment->Enable();
-      SendUniforms(m_fragment, menu);
+      SendUniforms(m_fragment, menu, gameState);
       break;
     case PER_VERTEX:
       m_vertex->Enable();
-      SendUniforms(m_vertex, menu);
+      SendUniforms(m_vertex, menu, gameState);
       break;
   }
 }
@@ -316,7 +316,7 @@ Physics* Graphics::getPhysics()
   return m_physics;
 }
 
-bool Graphics::SendUniforms(Shader *m_shader, MenuVars* menu)
+bool Graphics::SendUniforms(Shader *m_shader, MenuVars* menu, int gameState)
 {
   // Send in the projection and view to the shader
   glUniformMatrix4fv(m_shader->m_projectionMatrix, 1, GL_FALSE, glm::value_ptr(m_camera->GetProjection()));
@@ -336,8 +336,11 @@ bool Graphics::SendUniforms(Shader *m_shader, MenuVars* menu)
     glUniformMatrix4fv(m_shader->m_modelMatrix, 1, GL_FALSE, glm::value_ptr(objectVector[index]->GetModel()));
     glUniform4f(m_shader->m_specular, objectVector[index]->GetSpecular().x, objectVector[index]->GetSpecular().y, objectVector[index]->GetSpecular().z, objectVector[index]->GetSpecular().w);
     glUniform1f(m_shader->m_shininess, objectVector[index]->GetShininess());
-    objectVector[index]->Render();
-    //std::cout << index << " ";
+    //dont render body parts based on gamestate
+    if (index < (lookupObjectIndex("head") + gameState) || index > (lookupObjectIndex("head") + 5))
+    {
+      objectVector[index]->Render();
+    }
   }
     // Get any errors from OpenGL
   auto error = glGetError();

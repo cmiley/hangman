@@ -94,7 +94,7 @@ void Engine::Run()
 
     // Update and render the graphics and gamestate
     m_graphics->Update(m_DT);
-    m_graphics->Render(selector, m_window->getVars());
+    m_graphics->Render(selector, m_window->getVars(), gameState);
 
     //updateGameState();
 
@@ -162,6 +162,7 @@ void Engine::Keyboard()
         else 
         {
           std::cout << "Wrong, you have " << 5 - numberWrong << " tries left!" << std::endl;
+          updateGameState();
           numberWrong++;
         }
       }
@@ -258,7 +259,7 @@ void Engine::updateShaderSelector()
 
 void Engine::updateGameState()
 {
-
+  gameState++;
 }
 
 void Engine::gameOver(int selector)
