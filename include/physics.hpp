@@ -33,7 +33,7 @@ class Physics
     void addGroundPlane(int);
 
     //adds an object to the physics world
-    void addObject(btCollisionShape*, btDefaultMotionState*, int, std::string name);
+    btRigidBody* addObject(btCollisionShape*, btDefaultMotionState*, int, std::string name);
 
     //applies force to a selected object
     void applyForce(btVector3 force, int index);
@@ -59,6 +59,9 @@ class Physics
     //used for detecting collisions between certain objects
     void myTickCallback();
 
+    //used for setting up the rope
+    void createRope(btCollisionShape*);
+
   private:
     btBroadphaseInterface* broadphase;
     btDefaultCollisionConfiguration* collisionConfiguration;
@@ -74,6 +77,8 @@ class Physics
     btRigidBody* plungerWallPlane;
 
     std::vector<btHingeConstraint*> hingeVector;
+
+    btAlignedObjectArray<btRigidBody*> rope;
 
     float gravAngle;
     float zGrav, yGrav;
