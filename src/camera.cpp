@@ -50,7 +50,7 @@ bool Camera::Update(float rotation, float zoom)
   tempVec *= zoom;
 
   view = glm::lookAt( tempVec, //Eye Position
-                      glm::vec3(0.0, 10.0, 0.0), //Focus point
+                      glm::vec3(0.0, 2.0, 0.0), //Focus point
                       glm::vec3(0.0, 1.0, 0.0)); //Positive Y is up
 
   //sin(angle) cos(angle)

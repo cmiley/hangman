@@ -1,3 +1,12 @@
+/*
+objName warehouseRoof
+objFileName Models/warehouseRoof.obj
+objTextureName Textures/metal.jpg
+positionX 0
+positionY 0
+positionZ 0
+*/
+
 #include "graphics.hpp"
 
 using namespace std;

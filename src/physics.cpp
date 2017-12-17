@@ -2,7 +2,7 @@
 
 Physics::Physics()
 {
-  grav = .1;
+  grav = 2;
   gravAngle = 0;
   zGrav = grav*sin( gravAngle );
   yGrav = -grav*cos( gravAngle );
@@ -83,7 +83,7 @@ btRigidBody* Physics::addObject(btCollisionShape* shape, btDefaultMotionState* m
 
   if (name == "rope")
   {
-  	dynamicsWorld->addRigidBody(physicsObjectVector.back(), (1<<(0)), (1<<(1)));
+  	dynamicsWorld->addRigidBody(physicsObjectVector.back(), (1<<(0)), 0);
   }
   else
   {
@@ -91,9 +91,6 @@ btRigidBody* Physics::addObject(btCollisionShape* shape, btDefaultMotionState* m
   }
 
   tempBody->setFriction(1.);
-
-  
-  std::cout << physicsObjectVector.size();
 
   return tempBody;
 }
@@ -160,7 +157,7 @@ void Physics::createRope(btCollisionShape* colShape, int totalRope)
 
 	for(int i = 0; i < totalRope; i++) 
 	{ 
-		startTransform.setOrigin(btVector3(btScalar(0),btScalar(i*3),btScalar(0)));
+		startTransform.setOrigin(btVector3(btScalar(0),btScalar(i+7),btScalar(0)));
 		btDefaultMotionState* genericMotionState = new btDefaultMotionState(startTransform);
 		rope.push_back(addObject(colShape, genericMotionState, ((i == lastBoxIndex) ? 0:mass), tempString));    
 	}
@@ -170,10 +167,10 @@ void Physics::createRope(btCollisionShape* colShape, int totalRope)
 		btRigidBody* r1 = rope[i];
 		btRigidBody* r2 = rope[i + 1];
 
-		btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.0,0.5,0), btVector3(0.0,-0.5,0));
+		btPoint2PointConstraint* leftSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(-0.0,0.5,0), btVector3(-0.0,-0.5,0));
 		dynamicsWorld->addConstraint(leftSpring);
 
-		//btPoint2PointConstraint* rightSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.5,0.25,0), btVector3(0.5,-0.25,0));
+		//btPoint2PointConstraint* rightSpring = new btPoint2PointConstraint(*r1, *r2, btVector3(0.1,0.5,0), btVector3(0.1,-0.5,0));
 		//dynamicsWorld->addConstraint(rightSpring);
 	}
 }
