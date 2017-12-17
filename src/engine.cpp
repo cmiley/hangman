@@ -51,7 +51,7 @@ bool Engine::Initialize()
 //  }
 
   //m_audio->Initialize();
-  gameState = 0;
+  gameState = 6;
 
   //reads a random word from word.txt
   readWordFromFile();
@@ -289,7 +289,7 @@ void Engine::readWordFromFile()
   if (fin.is_open())
   {
     srand (time(NULL));
-    int randomNumb = rand() % 190;
+    int randomNumb = rand() % 189;
     std::string tempString;
 
     for (int i = 0; i < randomNumb; i++)
