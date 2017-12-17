@@ -102,7 +102,7 @@ bool Graphics::Initialize(int width, int height)
     else
     {
       
-      int totalRope = 10;
+      int totalRope = 25;
       btCollisionShape *genericShape;
       
       for (int jindex = 0; jindex < totalRope; jindex++)
