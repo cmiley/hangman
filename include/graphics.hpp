@@ -49,6 +49,7 @@ class Graphics
     //Looks up an index for an object using the name vector
     int lookupObjectIndex( string input );
 
+
   private:
 
     //Handles error messages
@@ -70,9 +71,6 @@ class Graphics
     float ballz;
     float plungerz;
     int balls;
-
-    
-
 };
 
 #endif /* GRAPHICS_H */

@@ -5,7 +5,7 @@ using namespace std;
 
 Graphics::Graphics()
 {
-  
+
 }
 
 Graphics::~Graphics()
@@ -362,7 +362,6 @@ void Graphics::readNamesFromConfig()
 			if (tempString.find("objName") != string::npos)
 			{
 				fin >> tempString;
-				//cout << tempString << endl;
 				objectNames.push_back(tempString);
 			}
 		}

@@ -40,6 +40,9 @@
 
 #include <btBulletDynamicsCommon.h>
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 // ImGui for menus
 #include "imgui.hpp"
 #include "imgui_impl_sdl_gl3.h"
