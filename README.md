@@ -20,6 +20,7 @@ sudo apt-get install libassimp-dev
 sudo apt-get install libmagick++-dev
 sudo apt-get install libbullet-dev
 sudo apt-get install libopenal-dev
+sudo apt-get install libalut-dev
 ```
 
 ### CMake Instructions
