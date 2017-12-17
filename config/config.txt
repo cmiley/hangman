@@ -28,7 +28,7 @@ positionZ -7
 
 objName rope
 objFileName Models/rope.obj
-objTextureName blue.jpg
+objTextureName Textures/brown.png
 positionX 0
 positionY 0
 positionZ 0

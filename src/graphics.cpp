@@ -1,3 +1,33 @@
+/*
+objName warehouseRoom
+objFileName Models/warehouseRoom.obj
+objTextureName Textures/gray.png
+positionX 0
+positionY 0
+positionZ 0
+
+objName warehouseRoof
+objFileName Models/warehouseRoof.obj
+objTextureName Textures/metal.jpg
+positionX 0
+positionY 0
+positionZ 0
+
+objName warehouseFloor
+objFileName Models/warehouseFloor.obj
+objTextureName Textures/concrete.jpg
+positionX 0
+positionY 0
+positionZ 0
+
+objName man
+objFileName Models/character_male.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 0
+positionZ -7
+*/
+
 #include "graphics.hpp"
 
 using namespace std;
@@ -58,19 +88,19 @@ bool Graphics::Initialize(int width, int height)
   // Create the objects
   for (int index = 0; index < objectNames.size(); index++)
   {
-  	int mass;
-  	btTriangleMesh* objTriMesh = new btTriangleMesh();
-  	genericObject = new Object(objectNames[index], objTriMesh);
-
-  	btCollisionShape *genericShape;
-
-    genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
-
     //cout << "INDEX: "  << index << " NAME: " << objectNames[index] << endl;
 
     //if not the rope
     if ((objectNames[index].find("rope") == string::npos))
     {
+      int mass;
+      btTriangleMesh* objTriMesh = new btTriangleMesh();
+      genericObject = new Object(objectNames[index], objTriMesh);
+
+      btCollisionShape *genericShape;
+
+      genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
+
     	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
     		|| (objectNames[index].find("warehouseFloor") != string::npos))
 
@@ -91,25 +121,28 @@ bool Graphics::Initialize(int width, int height)
     //if it is rope
     else
     {
-      int totalRope = 10;
+      int totalRope = 5;
+      btCollisionShape *genericShape;
+      
       for (int jindex = 0; jindex < totalRope; jindex++)
       {
+        btTriangleMesh* objTriMesh = new btTriangleMesh();
+        genericObject = new Object(objectNames[index], objTriMesh);
+
+        genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
+
         objectVector.push_back(genericObject);
+        std::cout << "size: " << objectVector.size() << endl;
       }
-      m_physics->createRope(genericShape);
+      m_physics->createRope(genericShape, totalRope);
     }
   } 
 
   paddleLindex = lookupObjectIndex( "leftPaddle");
   paddleRindex = lookupObjectIndex( "rightPaddle");
   ballIndex = lookupObjectIndex( "ball" );
-
-  /*
-  m_physics->rotate( glm::radians(180.) , paddleRindex );
-  m_physics->rotate( glm::radians(1.) , paddleLindex   );
-  */
   
-  m_physics->addGroundPlane(0);
+  //m_physics->addGroundPlane(0);
 
   // Set up the shaders
   m_passthrough = new Shader();
@@ -216,6 +249,7 @@ void Graphics::Update(unsigned int dt)
   {
     temp = m_physics->Update(dt, index);
     objectVector[index]->Update(dt, temp);
+    std::cout << "Height of " << index << ": " << m_physics->getHeight(index) << std::endl;
   }
 }
 
@@ -308,6 +342,7 @@ bool Graphics::SendUniforms(Shader *m_shader, MenuVars* menu)
     glUniform4f(m_shader->m_specular, objectVector[index]->GetSpecular().x, objectVector[index]->GetSpecular().y, objectVector[index]->GetSpecular().z, objectVector[index]->GetSpecular().w);
     glUniform1f(m_shader->m_shininess, objectVector[index]->GetShininess());
     objectVector[index]->Render();
+    //std::cout << index << " ";
   }
     // Get any errors from OpenGL
   auto error = glGetError();
