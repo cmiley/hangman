@@ -90,7 +90,7 @@ btRigidBody* Physics::addObject(btCollisionShape* shape, btDefaultMotionState* m
   	dynamicsWorld->addRigidBody(physicsObjectVector.back());
   }
 
-  tempBody->setFriction(0);
+  tempBody->setFriction(50.);
 
   return tempBody;
 }
