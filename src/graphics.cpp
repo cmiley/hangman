@@ -64,31 +64,40 @@ bool Graphics::Initialize(int width, int height)
 
   	btCollisionShape *genericShape;
 
+    genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
+
     //cout << "INDEX: "  << index << " NAME: " << objectNames[index] << endl;
 
-    //for satics 
-  	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
-  		|| (objectNames[index].find("warehouseFloor") != string::npos))
+    //if not the rope
+    if ((objectNames[index].find("rope") == string::npos))
+    {
+    	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
+    		|| (objectNames[index].find("warehouseFloor") != string::npos))
 
-  	{
-  		genericShape = new btBvhTriangleMeshShape(objTriMesh, true);
-  		mass = 0;
-  	}
-  	else
-  	{
-	  genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
-	  mass = 1;
-      if( objectNames[index].find("ball") != string::npos )
+    	{
+    		mass = 0;
+    	}
+
+    	else
+    	{
+  	    mass = 1;
+    	}
+
+    	btDefaultMotionState* genericMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(glmToBullet(genericObject->GetPosition()))));
+
+      objectVector.push_back(genericObject);
+      m_physics->addObject(genericShape, genericMotionState, mass, objectNames[index]);
+    }
+    //if it is rope
+    else
+    {
+      int totalRope = 10;
+      for (int jindex = 0; jindex < totalRope; jindex++)
       {
-        mass = 10;
+        objectVector.push_back(genericObject);
       }
-  	}
-
-  	btDefaultMotionState* genericMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(glmToBullet(genericObject->GetPosition()))));
-
-    objectVector.push_back(genericObject);
-    m_physics->addObject(genericShape, genericMotionState, mass, objectNames[index]);
-
+      m_physics->createRope(genericShape);
+    }
   } 
 
   paddleLindex = lookupObjectIndex( "leftPaddle");
