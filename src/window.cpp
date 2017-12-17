@@ -100,10 +100,10 @@ void Window::RunMenu()
 //    ImGui::SliderFloat("Zoom", &imgui_vars.zoom, 0.0f, 2.0f);
 //    ImGui::SliderFloat("Spotlight Size", &imgui_vars.spot_size, 0.0f, 5.0f);
 //    ImGui::SliderFloat("Spotlight Brightness", &imgui_vars.spot_brightness, 0.0f, 1.0f);
-//    ImGui::ColorEdit3("Ambient Brightness", (float*)&imgui_vars.ambient);
-//    ImGui::ColorEdit3("Cube specular Brightness", (float*)&imgui_vars.specular);
-//    ImGui::ColorEdit3("Diffuse Brightness", (float*)&imgui_vars.diffuse);
-//    ImGui::SliderFloat("Cube Shininess", &imgui_vars.shininess, 0.0f, 1.0f);
+    ImGui::ColorEdit3("Ambient Brightness", (float*)&imgui_vars.ambient);
+    ImGui::ColorEdit3("Specular Brightness", (float*)&imgui_vars.specular);
+    ImGui::ColorEdit3("Diffuse Brightness", (float*)&imgui_vars.diffuse);
+    ImGui::SliderFloat("Shininess coefficient", &imgui_vars.shininess, 0.0f, 1.0f);
 //    ImGui::SliderFloat3("Light Position", imgui_vars.light_pos, 0, 10);
 //    ImGui::SliderFloat("Table Angle", &imgui_vars.tableAngle, -30., 30.);
 //    ImGui::Checkbox("MEAT MODE", &imgui_vars.meat_mode);
