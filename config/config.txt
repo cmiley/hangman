@@ -96,3 +96,10 @@ positionX 0
 positionY 0
 positionZ 0
 
+objName rope
+objFileName Models/rope.obj
+objTextureName Textures/brown.png
+positionX 0
+positionY 0
+positionZ 0
+

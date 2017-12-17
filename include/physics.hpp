@@ -60,7 +60,13 @@ class Physics
     void myTickCallback();
 
     //used for setting up the rope
-    void createRope(btCollisionShape*);
+    void createRope(btCollisionShape*, int);
+
+    //returns height of object using an index
+    float getHeight(int);
+
+    //attaches the limbs together and attaches the head to the rope
+    void attachLimbs(int);
 
   private:
     btBroadphaseInterface* broadphase;
