@@ -63,7 +63,7 @@ bool Engine::Initialize()
   }
   gameWord[word.size()] = '\0';
 
-  printWord();
+  //printWord();
 
   // Set the time
   m_currentTimeMillis = GetCurrentTimeMillis();
@@ -149,7 +149,7 @@ void Engine::Keyboard()
         //if we have used it, else
         if (checkIfUsedLetter(letter))
         {
-          std::cout << "You have used this letter already!" << std::endl;
+          //std::cout << "You have used this letter already!" << std::endl;
         }
         else
         {
@@ -159,17 +159,17 @@ void Engine::Keyboard()
           //if it is valid else
           if (checkIfCharIsValid(letter))
           {
-            std::cout << "Correct!" << std::endl;
+            //std::cout << "Correct!" << std::endl;
             updateWord(letter);
           }
           else 
           {
-            std::cout << "Wrong, you have " << 6 - numberWrong << " tries left!" << std::endl;
+            //std::cout << "Wrong, you have " << 6 - numberWrong << " tries left!" << std::endl;
             updateGameState();
             numberWrong++;
           }
         }
-        printWord();
+        //printWord();
       }
     }
 
@@ -304,7 +304,7 @@ void Engine::readWordFromFile()
 
     word = tempString;
 
-    std::cout << "Your word is " << word.size() << " letters long..." << std::endl;
+    //std::cout << "Your word is " << word.size() << " letters long..." << std::endl;
   }
   else
   {
