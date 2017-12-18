@@ -19,7 +19,7 @@ class Window
     bool Initialize(const string &name, int* width, int* height);
     
     //Run the gui menu
-    void RunMenu(string text, int num_wrong);
+    void RunMenu(string text, int num_wrong, string);
 
     //swap frames
     void Swap();

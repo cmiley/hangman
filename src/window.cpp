@@ -87,7 +87,7 @@ bool Window::Initialize(const string &name, int* width, int* height)
   return true;
 }
 
-void Window::RunMenu(string text, int num_wrong)
+void Window::RunMenu(string text, int num_wrong, string gameOver)
 {
 
   ImGui_ImplSdlGL3_NewFrame(gWindow);
@@ -100,7 +100,7 @@ void Window::RunMenu(string text, int num_wrong)
     ImGui::Begin("Hangman Menu", &value);
     ImGui::Text("Your word is "); ImGui::SameLine(); ImGui::Text(len.c_str()); ImGui::SameLine(); ImGui::Text(" letters long...");
     ImGui::Text("Your current word is: "); ImGui::SameLine(); ImGui::Text(text.c_str());
-    ImGui::Text("You have "); ImGui::SameLine(); ImGui::Text(guess_left.c_str()); ImGui::SameLine(); ImGui::Text(" guesses left.");
+    ImGui::Text("You have "); ImGui::SameLine(); ImGui::Text(guess_left.c_str()); ImGui::SameLine(); ImGui::Text(" guesses left. "); ImGui::SameLine(); ImGui::Text(gameOver.c_str());
 //    ImGui::Text("Edit the variables below to see changes in the lighting of the program.");
 //    ImGui::SliderFloat("Zoom", &imgui_vars.zoom, 0.0f, 2.0f);
 //    ImGui::SliderFloat("Spotlight Size", &imgui_vars.spot_size, 0.0f, 5.0f);

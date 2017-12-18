@@ -86,6 +86,7 @@ class Engine
     unsigned int gameState;
 
     std::string word;
+    std::string endGame = " ";
     int alphabet[26] = {0};
     int numberWrong = 0;
     char* gameWord;

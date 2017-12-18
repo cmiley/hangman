@@ -50,7 +50,7 @@ bool Engine::Initialize()
 //  }
 
   //m_audio->Initialize();
-  gameState = 6;
+  gameState = 0;
 
   //reads a random word from word.txt
   readWordFromFile();
@@ -101,7 +101,7 @@ void Engine::Run()
 
     //updateGameState();
 
-    m_window->RunMenu(gameWord, numberWrong);
+    m_window->RunMenu(gameWord, numberWrong, endGame);
 
     // Swap to the Window
     m_window->Swap();
@@ -144,30 +144,33 @@ void Engine::Keyboard()
 
       //std::cout << letter << std::endl;
       
-      //if we have used it, else
-      if (checkIfUsedLetter(letter))
+      if (gameState < 6)
       {
-        std::cout << "You have used this letter already!" << std::endl;
-      }
-      else
-      {
-        //set the letter to have been used
-        alphabet[letter - 97] = 1;
+        //if we have used it, else
+        if (checkIfUsedLetter(letter))
+        {
+          std::cout << "You have used this letter already!" << std::endl;
+        }
+        else
+        {
+          //set the letter to have been used
+          alphabet[letter - 97] = 1;
 
-        //if it is valid else
-        if (checkIfCharIsValid(letter))
-        {
-          std::cout << "Correct!" << std::endl;
-          updateWord(letter);
+          //if it is valid else
+          if (checkIfCharIsValid(letter))
+          {
+            std::cout << "Correct!" << std::endl;
+            updateWord(letter);
+          }
+          else 
+          {
+            std::cout << "Wrong, you have " << 6 - numberWrong << " tries left!" << std::endl;
+            updateGameState();
+            numberWrong++;
+          }
         }
-        else 
-        {
-          std::cout << "Wrong, you have " << 6 - numberWrong << " tries left!" << std::endl;
-          updateGameState();
-          numberWrong++;
-        }
+        printWord();
       }
-      printWord();
     }
 
   }
@@ -265,18 +268,21 @@ void Engine::updateGameState()
 
 void Engine::gameOver(int selector)
 {
-  std::cout << "Game Over!" << std::endl;
+  std::string tempString = "Game Over!";
   if (selector == 0)
   {
-    std::cout << "You lose!" << std::endl;
-    std::cout << "The word was " << word << "!" << std::endl;
-    m_running = false;
+    tempString.append(" You Lose! The word was ");
+    tempString.append(word);
+    tempString.append("!");
+    //m_running = false;
   }
   else
   {
-    std::cout << "You Win!" << std::endl;
-    m_running = false;
+    tempString.append(" You Win!");
+    //m_running = false;
   }
+
+  endGame = tempString;
 }
 
 void Engine::readWordFromFile()
