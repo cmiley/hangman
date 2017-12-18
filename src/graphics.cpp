@@ -122,7 +122,7 @@ bool Graphics::Initialize(int width, int height)
     }
   } 
 
-  cout << lookupObjectIndex("head") << endl;
+  //cout << lookupObjectIndex("head") << endl;
 
   m_physics->attachLimbs(lookupObjectIndex("head"));
 
