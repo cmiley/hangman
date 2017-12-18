@@ -1,0 +1,46 @@
+# Blender MTL File: 'None'
+# Material Count: 4
+
+newmtl BLack
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png
+
+newmtl Eyes
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png
+
+newmtl Skin
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.364443 0.414650
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png
+
+newmtl Wool
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.242558 0.131929 0.084547
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png

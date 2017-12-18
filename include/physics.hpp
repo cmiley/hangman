@@ -68,6 +68,9 @@ class Physics
     //attaches the limbs together and attaches the head to the rope
     void attachLimbs(int);
 
+    //change gravity
+    void changeGravity(float);
+
   private:
     btBroadphaseInterface* broadphase;
     btDefaultCollisionConfiguration* collisionConfiguration;

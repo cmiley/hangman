@@ -14,7 +14,7 @@ Window::Window()
   imgui_vars.zoom = 1.0;
   imgui_vars.meat_mode = false;
   imgui_vars.s_selector = 2;
-  imgui_vars.tableAngle = 7.0;
+  imgui_vars.tableAngle = 0.0;
 }
 
 Window::~Window()
@@ -108,7 +108,7 @@ void Window::RunMenu(string text)
     ImGui::ColorEdit3("Diffuse Brightness", (float*)&imgui_vars.diffuse);
     ImGui::SliderFloat("Shininess coefficient", &imgui_vars.shininess, 0.0f, 1.0f);
 //    ImGui::SliderFloat3("Light Position", imgui_vars.light_pos, 0, 10);
-//    ImGui::SliderFloat("Table Angle", &imgui_vars.tableAngle, -30., 30.);
+    ImGui::SliderFloat("Gravity Angle", &imgui_vars.tableAngle, -30., 30.);
 //    ImGui::Checkbox("MEAT MODE", &imgui_vars.meat_mode);
     ImGui::RadioButton("Passthrough", &imgui_vars.s_selector, 0); ImGui::SameLine();
     ImGui::RadioButton("Per Vertex", &imgui_vars.s_selector, 1); ImGui::SameLine();

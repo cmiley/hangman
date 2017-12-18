@@ -2,7 +2,7 @@
 
 Physics::Physics()
 {
-  grav = .1;
+  grav = .5;
   gravAngle = 0;
   zGrav = grav*sin( gravAngle );
   yGrav = -grav*cos( gravAngle );
@@ -243,8 +243,16 @@ void Physics::attachLimbs(int indexOfHead)
 
 	for (int i = indexOfHead; i < indexOfHead + 6; ++i)
 	{
-		physicsObjectVector[i]->setDamping(0.4f, 0.8f);
+		physicsObjectVector[i]->setDamping(0.01f, 0.05f);
 		//physicsObjectVector[i]->setDeactivationTime(0.8f);
 		//physicsObjectVector[i]->setSleepingThresholds(1.6f, 2.5f);
 	}
+}
+
+void Physics::changeGravity( float newAngle )
+{
+  gravAngle = glm::radians( newAngle );
+  zGrav = grav*sin( gravAngle ) / 12.;
+  yGrav = -grav*cos( gravAngle ) / 12.;
+  dynamicsWorld->setGravity(btVector3(0, yGrav, zGrav));
 }
