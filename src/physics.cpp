@@ -2,7 +2,7 @@
 
 Physics::Physics()
 {
-  grav = .5;
+  grav = .8;
   gravAngle = 0;
   zGrav = grav*sin( gravAngle );
   yGrav = -grav*cos( gravAngle );
@@ -241,9 +241,23 @@ void Physics::attachLimbs(int indexOfHead)
 	btPoint2PointConstraint* leftLegToBodyL = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead + 1], *physicsObjectVector[indexOfHead + 5], btVector3(0.1, -0.3, -0.1), btVector3(0.0, 0.0, -0.1));
 	dynamicsWorld->addConstraint(leftLegToBodyL);
 
+	btGeneric6DofSpringConstraint *legSpring = new btGeneric6DofSpringConstraint(*physicsObjectVector[indexOfHead + 4], *physicsObjectVector[indexOfHead + 5], btTransform(btQuaternion::getIdentity(), { 0.1f, -0.2f, 0.0f }), btTransform(btQuaternion::getIdentity(), { -0.1f,  -0.2f, 0.0f }), true);
+	dynamicsWorld->addConstraint(legSpring);
+
+	// Removing any restrictions on the y-coordinate of the hanging box
+	// by setting the lower limit above the upper one.
+	//spring->setLinearLowerLimit(btVector3(0.0f, 1.0f, 0.0f));
+	//spring->setLinearUpperLimit(btVector3(0.0f, 0.0f, 0.0f));
+
+	// Enabling the spring behavior for they y-coordinate (index = 1)
+	legSpring->enableSpring(1,  true);
+	legSpring->setStiffness(1, 0.1f);
+	legSpring->setDamping  (1,  0.5f);
+	legSpring->setEquilibriumPoint();
+
 	for (int i = indexOfHead; i < indexOfHead + 6; ++i)
 	{
-		physicsObjectVector[i]->setDamping(0.01f, 0.05f);
+		//physicsObjectVector[i]->setDamping(0.2f, 0.3f);
 		//physicsObjectVector[i]->setDeactivationTime(0.8f);
 		//physicsObjectVector[i]->setSleepingThresholds(1.6f, 2.5f);
 	}
