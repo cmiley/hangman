@@ -1,12 +1,16 @@
 # Final Project: Hangman
 ## Controls
-Here go the controls
+ESC : Quits
+A-Z : Attepmt a letter
+MouseWheel : Zoom
+RightClick : Adjust Camera
 
-## Extra Credit
-We did some cool stuff that is worth more points
+Menu: Change Lighting Settings
+	  Change Gravity Angle
 
 ## Features
-Our program is cool and can do this stuff
+A softbody Rope
+A functional Hangman game!
 
 ## Dependency Instructions
 For both of the operating systems to run this project installation of these three programs are required [GLEW](http://glew.sourceforge.net/), [GLM](http://glm.g-truc.net/0.9.7/index.html), and [SDL2](https://wiki.libsdl.org/Tutorials). 
