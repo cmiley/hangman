@@ -17,7 +17,7 @@ class Object
     ~Object();
 
     //updates the model matrix of the object
-    void Update(unsigned int dt, glm::mat4);
+    void Update(unsigned int dt, glm::mat4, MenuVars*);
 
     //renders an object
     void Render();
@@ -38,7 +38,7 @@ class Object
     void SetShininess(float new_shiny);
 
     //returns specularity
-    glm::vec4 GetSpecular();
+    glm::vec3 GetSpecular();
 
     //returns shininess
     float GetShininess();
@@ -65,7 +65,7 @@ class Object
 
     float m_rotationValue;
     float m_orbitValue;
-    glm::vec4 specular_scaler;
+    glm::vec3 specular_scaler;
     float shininess;
     glm::mat4 m_mvMatrix;
     glm::mat4 m_mvpMatrix;

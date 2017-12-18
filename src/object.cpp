@@ -4,7 +4,7 @@ Object::Object(std::string objectName, btTriangleMesh* objTriMesh)
 {
   configRead(objectName);
   loadModel(objTriMesh);
-  specular_scaler = glm::vec4(0.5, 0.5, 0.5, 0.0);
+  specular_scaler = glm::vec3(0.5, 0.5, 0.5);
   shininess = 0.5;
 }
 
@@ -14,8 +14,10 @@ Object::~Object()
   Indices.clear();
 }
 
-void Object::Update(unsigned int dt, glm::mat4 m)
+void Object::Update(unsigned int dt, glm::mat4 m, MenuVars* menu)
 {
+  SetSpecular(menu->specular);
+  SetShininess(menu->shininess);
   model = m;
 }
 
@@ -176,7 +178,7 @@ void Object::copyPlanetValues(Object* originObj)
 
 void Object::SetSpecular(glm::vec3 new_spec)
 {
-  specular_scaler = glm::vec4(new_spec, 0.0);
+  specular_scaler = new_spec, 0.0;
 }
 
 void Object::SetShininess(float new_shiny)
@@ -184,7 +186,7 @@ void Object::SetShininess(float new_shiny)
   shininess = new_shiny;
 }
 
-glm::vec4 Object::GetSpecular()
+glm::vec3 Object::GetSpecular()
 {
   return specular_scaler;
 }

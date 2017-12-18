@@ -10,7 +10,7 @@ Window::Window()
   imgui_vars.specular = glm::vec3(0.6);
   imgui_vars.spot_size = 2.0;
   imgui_vars.spot_brightness = 0.5;
-  imgui_vars.shininess = 0.5;
+  imgui_vars.shininess = 0.2;
   imgui_vars.zoom = 1.0;
   imgui_vars.meat_mode = false;
   imgui_vars.s_selector = 2;
@@ -122,7 +122,7 @@ void Window::RunMenu(string text, int num_wrong)
 //    ImGui::SliderFloat3("Spotlight Position", imgui_vars.spot_pos, 0, 10);
 //    ImGui::SliderFloat3("Cone Direction", imgui_vars.cone_dir, 0, 20);
 //    ImGui::SliderFloat("Gravity", imgui_vars.gravity, 0, 20);
-    if (ImGui::Button("Test Window")) show_test_window ^= 1;
+//    if (ImGui::Button("Test Window")) show_test_window ^= 1;
 //    if (ImGui::Button("Another Window")) show_another_window ^= 1;
     ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
     ImGui::End();
