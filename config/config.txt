@@ -126,7 +126,6 @@ positionX 12
 positionY 3.5
 positionZ 10
 
-
 objName rope
 objFileName Models/rope.obj
 objTextureName Textures/brown.png
@@ -134,3 +133,9 @@ positionX 0
 positionY 0
 positionZ 0
 
+objName rat
+objFileName Models/rat.obj
+objTextureName Textures/brown.png
+positionX 2
+positionY 2
+positionZ 2

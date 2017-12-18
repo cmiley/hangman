@@ -1,7 +1,7 @@
-# Blender MTL File: 'None'
+# Blender MTL File: 'updated.blend'
 # Material Count: 4
 
-newmtl BLack
+newmtl BLack.001
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
 Kd 0.000000 0.000000 0.000000
@@ -12,7 +12,7 @@ d 1.000000
 illum 2
 map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png
 
-newmtl Eyes
+newmtl Eyes.001
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -23,7 +23,7 @@ d 1.000000
 illum 1
 map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png
 
-newmtl Skin
+newmtl Skin.001
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 0.364443 0.414650
@@ -34,7 +34,7 @@ d 1.000000
 illum 1
 map_Kd /home/austin/workspace/hangman/textures/Textures/brown.png
 
-newmtl Wool
+newmtl Wool.001
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
 Kd 0.242558 0.131929 0.084547
