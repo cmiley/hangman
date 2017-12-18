@@ -126,12 +126,6 @@ positionX 12
 positionY 3.5
 positionZ 10
 
-objName rack1
-objFileName Models/rack.obj
-objTextureName Textures/crate.png
-positionX 0
-positionY 0
-positionZ 0
 
 objName rope
 objFileName Models/rope.obj
