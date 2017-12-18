@@ -231,16 +231,14 @@ bool Graphics::Initialize(int width, int height)
   return true;
 }
 
-void Graphics::Update(unsigned int dt)
+void Graphics::Update(unsigned int dt, MenuVars* menu)
 {
   glm::mat4 temp;
-
 
   for (int index = 0; index < objectVector.size(); index++)
   {
     temp = m_physics->Update(dt, index);
-    objectVector[index]->Update(dt, temp);
-    //std::cout << "Height of " << index << ": " << m_physics->getHeight(index) << std::endl;
+    objectVector[index]->Update(dt, temp, menu);
   }
 }
 
@@ -330,7 +328,7 @@ bool Graphics::SendUniforms(Shader *m_shader, MenuVars* menu, int gameState)
   for (int index = 0; index < objectVector.size(); index++)
   {
     glUniformMatrix4fv(m_shader->m_modelMatrix, 1, GL_FALSE, glm::value_ptr(objectVector[index]->GetModel()));
-    glUniform4f(m_shader->m_specular, objectVector[index]->GetSpecular().x, objectVector[index]->GetSpecular().y, objectVector[index]->GetSpecular().z, objectVector[index]->GetSpecular().w);
+    glUniform4f(m_shader->m_specular, objectVector[index]->GetSpecular().x, objectVector[index]->GetSpecular().y, objectVector[index]->GetSpecular().z, 0.0);
     glUniform1f(m_shader->m_shininess, objectVector[index]->GetShininess());
     //dont render body parts based on gamestate
     if (index < (lookupObjectIndex("head") + gameState) || index > (lookupObjectIndex("head") + 5))

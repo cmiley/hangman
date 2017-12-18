@@ -2,7 +2,9 @@
 
 Physics::Physics()
 {
-  grav = .6;
+
+  grav = 0.3;
+
 
   gravAngle = 0;
   zGrav = grav*sin( gravAngle );

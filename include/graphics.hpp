@@ -23,7 +23,7 @@ class Graphics
     bool Initialize(int width, int height);
 
     //Updates the physics object, then the graphics
-    void Update(unsigned int dt);
+    void Update(unsigned int dt, MenuVars* menu);
 
     //Renders all of the stuff that needs rendering
     void Render(ShaderSelector, MenuVars*, int);
