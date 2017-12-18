@@ -92,6 +92,9 @@ void Engine::Run()
 
     updateShaderSelector();
 
+    //update gravity angle
+    m_graphics->getPhysics()->changeGravity(m_window->getAngle());
+
     // Update and render the graphics and gamestate
     m_graphics->Update(m_DT);
     m_graphics->Render(selector, m_window->getVars(), gameState);
