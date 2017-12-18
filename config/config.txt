@@ -1,28 +1,28 @@
 
 objName warehouseRoomL
 objFileName Models/warehouseRoomL.obj
-objTextureName Textures/gray.png
+objTextureName Textures/wall.jpg
 positionX 0
 positionY 0
 positionZ 0
 
 objName warehouseRoomR
 objFileName Models/warehouseRoomR.obj
-objTextureName Textures/gray.png
+objTextureName Textures/wall.jpg
 positionX 0
 positionY 0
 positionZ 0
 
 objName warehouseRoomU
 objFileName Models/warehouseRoomU.obj
-objTextureName Textures/gray.png
+objTextureName Textures/wall.jpg
 positionX 0
 positionY 0
 positionZ 0
 
 objName warehouseRoomD
 objFileName Models/warehouseRoomD.obj
-objTextureName Textures/gray.png
+objTextureName Textures/wall.jpg
 positionX 0
 positionY 0
 positionZ 0
@@ -94,6 +94,13 @@ positionZ 5
 objName barrel
 objFileName Models/barrel.obj
 objTextureName Textures/barrelGreen.png
+positionX 5
+positionY 0
+positionZ 7
+
+objName man
+objFileName Models/character_male.obj
+objTextureName Textures/body.png
 positionX 5
 positionY 0
 positionZ 7

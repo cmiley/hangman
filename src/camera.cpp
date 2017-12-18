@@ -44,6 +44,9 @@ glm::mat4 Camera::GetView()
 bool Camera::Update(float rotation, float zoom)
 {
   glm::vec3 tempVec = glm::vec3(-8.0, 2.0, -8.0);
+
+  //glm::vec3 tempVec = glm::vec3(7.0, 4., 7.0);
+
   float angle = rotation * (float) M_PI / 180.0f;
   
   //tempVec = glm::rotate(tempVec, angle, glm::vec3(0.0, 1.0, 0.0));

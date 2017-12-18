@@ -136,8 +136,6 @@ void Engine::Keyboard()
       m_running = false;
     }
 
-    //std::cout << m_event.key.keysym.scancode << endl;
-
     //check if in A(4) through Z(29)
     if (m_event.key.keysym.scancode >= 4 && m_event.key.keysym.scancode <= 29)
     {
