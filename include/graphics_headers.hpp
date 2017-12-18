@@ -7,6 +7,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -17,7 +18,6 @@
   #include <OpenGL/GLU.h>
 #else //linux as default
   #include <GL/glew.h>
-  //#include <GL/glu.h>
 #endif
 
 // GLM for matricies

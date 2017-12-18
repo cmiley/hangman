@@ -50,7 +50,7 @@ bool Engine::Initialize()
 //  }
 
   //m_audio->Initialize();
-  gameState = 0;
+  gameState = 6;
 
   //reads a random word from word.txt
   readWordFromFile();
@@ -94,11 +94,11 @@ void Engine::Run()
 
     // Update and render the graphics and gamestate
     m_graphics->Update(m_DT);
-    m_graphics->Render(selector, m_window->getVars());
+    m_graphics->Render(selector, m_window->getVars(), gameState);
 
     //updateGameState();
 
-    m_window->RunMenu();
+    m_window->RunMenu(gameWord);
 
     // Swap to the Window
     m_window->Swap();
@@ -162,6 +162,7 @@ void Engine::Keyboard()
         else 
         {
           std::cout << "Wrong, you have " << 5 - numberWrong << " tries left!" << std::endl;
+          updateGameState();
           numberWrong++;
         }
       }
@@ -258,7 +259,7 @@ void Engine::updateShaderSelector()
 
 void Engine::updateGameState()
 {
-
+  gameState++;
 }
 
 void Engine::gameOver(int selector)
@@ -286,7 +287,7 @@ void Engine::readWordFromFile()
   if (fin.is_open())
   {
     srand (time(NULL));
-    int randomNumb = rand() % 190;
+    int randomNumb = rand() % 189;
     std::string tempString;
 
     for (int i = 0; i < randomNumb; i++)

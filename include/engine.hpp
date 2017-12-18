@@ -88,7 +88,7 @@ class Engine
     std::string word;
     int alphabet[26] = {0};
     int numberWrong = 0;
-    char *gameWord;
+    char* gameWord;
     
 };
 

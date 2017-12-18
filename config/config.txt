@@ -1,3 +1,4 @@
+
 objName warehouseRoomL
 objFileName Models/warehouseRoomL.obj
 objTextureName Textures/gray.png
@@ -51,50 +52,50 @@ objName head
 objFileName Models/head.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 1
-positionZ 0
+positionY 3
+positionZ .1
+
+objName torso
+objFileName Models/torso.obj
+objTextureName Textures/body.png
+positionX 0
+positionY 3
+positionZ .1
 
 objName rArm
 objFileName Models/rArm.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 2
-positionZ 0
+positionY 3
+positionZ .1
 
 objName lArm
 objFileName Models/lArm.obj
 objTextureName Textures/body.png
 positionX 0
 positionY 3
-positionZ 0
+positionZ .1
 
 objName rLeg
 objFileName Models/rLeg.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 4
-positionZ 0
+positionY 3
+positionZ .1
 
 objName lLeg
 objFileName Models/lLeg.obj
 objTextureName Textures/body.png
 positionX 0
-positionY 5
-positionZ 0
-
-objName torso
-objFileName Models/torso.obj
-objTextureName Textures/body.png
-positionX 0
-positionY 6
-positionZ 0
+positionY 3
+positionZ .1
 
 objName barrel
 objFileName Models/barrel.obj
 objTextureName Textures/barrelRed.png
-positionX 0
+positionX 5
 positionY 0
-positionZ 0
+positionZ 5
 
 objName rope
 objFileName Models/rope.obj

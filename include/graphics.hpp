@@ -26,7 +26,7 @@ class Graphics
     void Update(unsigned int dt);
 
     //Renders all of the stuff that needs rendering
-    void Render(ShaderSelector, MenuVars*);
+    void Render(ShaderSelector, MenuVars*, int);
 
     //returns m_camera
     Camera* getCamera();
@@ -35,7 +35,7 @@ class Graphics
     Physics* getPhysics();
 
     //Sending uniforms into shaders
-    bool SendUniforms(Shader*, MenuVars*);
+    bool SendUniforms(Shader*, MenuVars*, int);
 
     //Reads the object names from the config into a string vector
     void readNamesFromConfig();
@@ -48,6 +48,7 @@ class Graphics
 
     //Looks up an index for an object using the name vector
     int lookupObjectIndex( string input );
+
 
   private:
 
@@ -70,9 +71,6 @@ class Graphics
     float ballz;
     float plungerz;
     int balls;
-
-    
-
 };
 
 #endif /* GRAPHICS_H */
