@@ -94,7 +94,7 @@ void Window::RunMenu(string text, int num_wrong)
   bool value = true;
 
   string len = to_string(text.length());
-  string guess_left = to_string(5-num_wrong);
+  string guess_left = to_string(6-num_wrong);
 
   {
     ImGui::Begin("Hangman Menu", &value);

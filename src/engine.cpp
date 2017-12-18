@@ -59,7 +59,7 @@ bool Engine::Initialize()
   gameWord = new char [word.size()];
   for (int index = 0; index < word.size(); index++)
   {
-    gameWord[index] = '_';
+    gameWord[index] = '-';
   }
   gameWord[word.size()] = '\0';
 
@@ -164,7 +164,7 @@ void Engine::Keyboard()
         }
         else 
         {
-          std::cout << "Wrong, you have " << 5 - numberWrong << " tries left!" << std::endl;
+          std::cout << "Wrong, you have " << 6 - numberWrong << " tries left!" << std::endl;
           updateGameState();
           numberWrong++;
         }
@@ -335,7 +335,7 @@ bool Engine::checkIfWin()
 {
   for (int index = 0; index < word.size(); index++)
   {
-    if (gameWord[index] == '_')
+    if (gameWord[index] == '-')
     {
       return false;
     }
