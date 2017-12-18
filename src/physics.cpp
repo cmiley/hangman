@@ -220,6 +220,9 @@ void Physics::attachLimbs(int indexOfHead)
 	btPoint2PointConstraint* rightArmToBodyL = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead + 1], *physicsObjectVector[indexOfHead + 2], btVector3(-0.23, 0.3, -0.1), btVector3(0.0, 0.0, -0.0));
 	dynamicsWorld->addConstraint(rightArmToBodyL);
 
+	btPoint2PointConstraint* rightArmToBodyB = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead + 1], *physicsObjectVector[indexOfHead + 2], btVector3(-0.23, 0.0, -0.1), btVector3(0.0, -0.3, -0.0));
+	dynamicsWorld->addConstraint(rightArmToBodyB);
+
 	//attach the left arm
 
 	btPoint2PointConstraint* leftArmToBodyR = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead + 1], *physicsObjectVector[indexOfHead + 3], btVector3(0.23, 0.3, 0.1), btVector3(0.0, 0.0, 0.2));
@@ -227,6 +230,9 @@ void Physics::attachLimbs(int indexOfHead)
 
 	btPoint2PointConstraint* leftArmToBodyL = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead + 1], *physicsObjectVector[indexOfHead + 3], btVector3(0.23, 0.3, -0.1), btVector3(0.0, 0.0, -0.0));
 	dynamicsWorld->addConstraint(leftArmToBodyL);
+
+	btPoint2PointConstraint* leftArmToBodyB = new btPoint2PointConstraint(*physicsObjectVector[indexOfHead + 1], *physicsObjectVector[indexOfHead + 3], btVector3(0.23, 0.0, -0.1), btVector3(0.0, -0.3, -0.0));
+	dynamicsWorld->addConstraint(leftArmToBodyB);
 
 	//attach the right leg
 
@@ -255,14 +261,14 @@ void Physics::attachLimbs(int indexOfHead)
 	legSpring->setDamping  (1,  0.5f);
 	legSpring->setEquilibriumPoint();
 
-	rightArmSpring->enableSpring(1,  true);
-	rightArmSpring->setStiffness(1, 10.1f);
-	rightArmSpring->setDamping  (1,  10.0f);
-	rightArmSpring->setEquilibriumPoint();
+	//rightArmSpring->enableSpring(1,  true);
+	//rightArmSpring->setStiffness(1, 10.1f);
+	//rightArmSpring->setDamping  (1,  10.0f);
+	//rightArmSpring->setEquilibriumPoint();
 
 	for (int i = indexOfHead; i < indexOfHead + 6; ++i)
 	{
-		//physicsObjectVector[i]->setDamping(0.2f, 0.3f);
+		//physicsObjectVector[i]->setDamping(0.04f, 0.1f);
 		//physicsObjectVector[i]->setDeactivationTime(0.8f);
 		//physicsObjectVector[i]->setSleepingThresholds(1.6f, 2.5f);
 	}
