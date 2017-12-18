@@ -41,12 +41,6 @@ positionX 0
 positionY 0
 positionZ 0
 
-objName man
-objFileName Models/character_male.obj
-objTextureName Textures/body.png
-positionX 0
-positionY 1
-positionZ -7
 
 objName head
 objFileName Models/head.obj
@@ -90,12 +84,41 @@ positionX 0
 positionY 3
 positionZ .1
 
-objName barrel
+objName barrel1
 objFileName Models/barrel.obj
 objTextureName Textures/barrelRed.png
 positionX 5
 positionY 0
 positionZ 5
+
+objName barrel
+objFileName Models/barrel.obj
+objTextureName Textures/barrelGreen.png
+positionX 5
+positionY 0
+positionZ 7
+
+objName container1
+objFileName Models/container.obj
+objTextureName Textures/red.jpg
+positionX 10
+positionY 0
+positionZ 10
+
+objName container2
+objFileName Models/container.obj
+objTextureName Textures/red.jpg
+positionX 14
+positionY 0
+positionZ 10
+
+objName container3
+objFileName Models/container.obj
+objTextureName Textures/red.jpg
+positionX 12
+positionY 3.5
+positionZ 10
+
 
 objName rope
 objFileName Models/rope.obj

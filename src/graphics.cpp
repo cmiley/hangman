@@ -82,7 +82,8 @@ bool Graphics::Initialize(int width, int height)
       genericShape = new btConvexTriangleMeshShape(objTriMesh, true);
 
     	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
-    		|| (objectNames[index].find("warehouseFloor") != string::npos) || (objectNames[index].find("barrel") != string::npos))
+    		|| (objectNames[index].find("warehouseFloor") != string::npos) || (objectNames[index].find("barrel") != string::npos) 
+        || (objectNames[index].find("container") != string::npos))
 
     	{
     		mass = 0;
@@ -90,7 +91,7 @@ bool Graphics::Initialize(int width, int height)
 
     	else
     	{
-  	    mass = 5;
+  	    mass = 50;
     	}
 
     	btDefaultMotionState* genericMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(glmToBullet(genericObject->GetPosition()))));
