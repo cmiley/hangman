@@ -50,7 +50,7 @@ bool Camera::Update(float rotation, float zoom)
   float angle = rotation * (float) M_PI / 180.0f;
   
   //tempVec = glm::rotate(tempVec, angle, glm::vec3(0.0, 1.0, 0.0));
-  //tempVec *= zoom;
+  tempVec *= zoom;
 
   view = glm::lookAt( tempVec, //Eye Position
                       glm::vec3(sin(angle), 4.0, cos(angle)), //Focus point
