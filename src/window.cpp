@@ -87,18 +87,20 @@ bool Window::Initialize(const string &name, int* width, int* height)
   return true;
 }
 
-void Window::RunMenu(string text)
+void Window::RunMenu(string text, int num_wrong)
 {
 
   ImGui_ImplSdlGL3_NewFrame(gWindow);
   bool value = true;
 
   string len = to_string(text.length());
+  string guess_left = to_string(5-num_wrong);
 
   {
     ImGui::Begin("Hangman Menu", &value);
     ImGui::Text("Your word is "); ImGui::SameLine(); ImGui::Text(len.c_str()); ImGui::SameLine(); ImGui::Text(" letters long...");
     ImGui::Text("Your current word is: "); ImGui::SameLine(); ImGui::Text(text.c_str());
+    ImGui::Text("You have "); ImGui::SameLine(); ImGui::Text(guess_left.c_str()); ImGui::SameLine(); ImGui::Text(" guesses left.");
 //    ImGui::Text("Edit the variables below to see changes in the lighting of the program.");
 //    ImGui::SliderFloat("Zoom", &imgui_vars.zoom, 0.0f, 2.0f);
 //    ImGui::SliderFloat("Spotlight Size", &imgui_vars.spot_size, 0.0f, 5.0f);
@@ -119,6 +121,7 @@ void Window::RunMenu(string text)
 //    ImGui::SliderAngle("Cone Angle", &imgui_vars.spotlight.coneAngle);
 //    ImGui::SliderFloat3("Spotlight Position", imgui_vars.spot_pos, 0, 10);
 //    ImGui::SliderFloat3("Cone Direction", imgui_vars.cone_dir, 0, 20);
+//    ImGui::SliderFloat("Gravity", imgui_vars.gravity, 0, 20);
     if (ImGui::Button("Test Window")) show_test_window ^= 1;
 //    if (ImGui::Button("Another Window")) show_another_window ^= 1;
     ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);

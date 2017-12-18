@@ -101,7 +101,7 @@ void Engine::Run()
 
     //updateGameState();
 
-    m_window->RunMenu(gameWord);
+    m_window->RunMenu(gameWord, numberWrong);
 
     // Swap to the Window
     m_window->Swap();
