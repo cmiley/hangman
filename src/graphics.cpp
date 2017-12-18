@@ -83,7 +83,7 @@ bool Graphics::Initialize(int width, int height)
 
     	if ((objectNames[index].find("warehouseRoom") != string::npos) || (objectNames[index].find("warehouseRoof") != string::npos) 
     		|| (objectNames[index].find("warehouseFloor") != string::npos) || (objectNames[index].find("barrel") != string::npos) 
-        || (objectNames[index].find("container") != string::npos))
+        || (objectNames[index].find("container") != string::npos) || (objectNames[index].find("man") != string::npos))
 
     	{
     		mass = 0;
@@ -121,6 +121,8 @@ bool Graphics::Initialize(int width, int height)
       
     }
   } 
+
+  m_physics->rotate( -90., lookupObjectIndex("man"));
 
   cout << lookupObjectIndex("head") << endl;
 

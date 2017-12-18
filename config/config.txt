@@ -98,6 +98,13 @@ positionX 5
 positionY 0
 positionZ 7
 
+objName man
+objFileName Models/character_male.obj
+objTextureName Textures/body.png
+positionX 5
+positionY 0
+positionZ 7
+
 objName container1
 objFileName Models/container.obj
 objTextureName Textures/red.jpg
