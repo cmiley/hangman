@@ -5,6 +5,8 @@ in vec3 fL;
 in vec3 fE;
 in vec2 uv;
 
+out vec4 frag_color;
+
 uniform vec4 AmbientProduct, DiffuseProduct, SpecularProduct;
 uniform float Shininess;
 uniform sampler2D gSampler;
@@ -39,9 +41,9 @@ void main()
     if( dot(L, N) < 0.0 ) 
 	specular = vec4(0.0, 0.0, 0.0, 1.0);
 
-    gl_FragColor = ambient + diffuse + specular;
-    gl_FragColor.a = 1.0;
-    gl_FragColor.r = gl_FragColor.r * frag_tex.r;
-    gl_FragColor.g = gl_FragColor.g * frag_tex.g;
-    gl_FragColor.b = gl_FragColor.b * frag_tex.b;
+    frag_color = ambient + diffuse + specular;
+    frag_color.a = 1.0;
+    frag_color.r = frag_color.r * frag_tex.r;
+    frag_color.g = frag_color.g * frag_tex.g;
+    frag_color.b = frag_color.b * frag_tex.b;
 }

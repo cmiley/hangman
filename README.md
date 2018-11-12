@@ -1,8 +1,11 @@
 # Final Project: Hangman
 ## Controls
 ESC : Quits
-A-Z : Attepmt a letter
+
+A-Z : Attempt a letter
+
 MouseWheel : Zoom
+
 RightClick : Adjust Camera
 
 Menu: Change Lighting Settings
@@ -10,6 +13,7 @@ Menu: Change Lighting Settings
 
 ## Features
 A softbody Rope
+
 A functional Hangman game!
 
 ## Dependency Instructions
@@ -19,15 +23,15 @@ This project uses OpenGL 3.3. Some computers, such as virtual machines in the EC
 ### Ubuntu/Linux
 The following dependencies are required:
 ```bash
-sudo apt-get install libglew-dev libglm-dev libsdl2-dev
-sudo apt-get install libassimp-dev
-sudo apt-get install libmagick++-dev
-sudo apt-get install libbullet-dev
-sudo apt-get install libopenal-dev
-sudo apt-get install libalut-dev
-sudo apt-get install libxmu-dev libxi-dev
-sudo apt-get install freeglut3-dev 
-sudo apt-get install libfreetype6-dev
+sudo apt install libglew-dev libglm-dev libsdl2-dev
+sudo apt install libassimp-dev
+sudo apt install libmagick++-dev
+sudo apt install libbullet-dev
+sudo apt install libopenal-dev
+sudo apt install libalut-dev
+sudo apt install libxmu-dev libxi-dev
+sudo apt install freeglut3-dev 
+sudo apt install libfreetype6-dev
 ```
 
 ### CMake Instructions
